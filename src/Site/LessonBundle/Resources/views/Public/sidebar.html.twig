@@ -1,0 +1,12 @@
+{% for type in lesson_types %}
+  {% if type.path == "0" %}
+	<ul class="nav nav-list">
+	  <li class="nav-header">{{type.name}}</li>
+	  {% for ctype in type.children %}
+	    <li>
+		  <a href="#">{{ ctype.name }}</a>
+	    </li>
+	  {% endfor %}
+	</ul>
+  {% endif %}
+{% endfor %}

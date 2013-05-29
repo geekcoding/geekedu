@@ -1,0 +1,662 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0051)http://dev.geekcoding.net/admin/user/group#addmodal -->
+<html xmlns="http://www.w3.org/1999/xhtml" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Supr admin</title>
+    <meta name="author" content="SuggeElson">
+    <meta name="description" content="Supr admin template - new premium responsive admin template. This template is designed to help you build the site administration without losing valuable time.Template contains all the important functions which must have one backend system.Build on great twitter boostrap framework">
+    <meta name="keywords" content="admin, admin template, admin theme, responsive, responsive admin, responsive admin template, responsive theme, themeforest, 960 grid system, grid, grid theme, liquid, masonry, jquery, administration, administration template, administration theme, mobile, touch , responsive layout, boostrap, twitter boostrap">
+    <meta name="application-name" content="Supr admin template">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le styles -->
+    <!-- Use new way for google web fonts 
+    http://www.smashingmagazine.com/2012/07/11/avoiding-faux-weights-styles-google-web-fonts -->
+    <!-- Headings -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />  -->
+    <!-- Text -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css' /> --> 
+    <!--[if lt IE 9]>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:700" rel="stylesheet" type="text/css" />
+    <![endif]-->
+
+    <!-- Core stylesheets do not remove -->
+                        <link href="./Supr admin_files/744903b_bootstrap.min_1.css" rel="stylesheet" type="text/css">
+                    <link href="./Supr admin_files/744903b_bootstrap-responsive.min_2.css" rel="stylesheet" type="text/css">
+                    <link href="./Supr admin_files/744903b_jquery.ui.supr_3.css" rel="stylesheet" type="text/css">
+                    <link href="./Supr admin_files/744903b_icons_4.css" rel="stylesheet" type="text/css">
+                    <link href="./Supr admin_files/744903b_jquery.qtip_5.css" rel="stylesheet" type="text/css">
+                    <link href="./Supr admin_files/744903b_fullcalendar_6.css" rel="stylesheet" type="text/css">
+                    <link href="./Supr admin_files/744903b_tipuesearch_7.css" rel="stylesheet" type="text/css">
+                    <link href="./Supr admin_files/744903b_uniform.default_8.css" rel="stylesheet" type="text/css">
+                    <link href="./Supr admin_files/744903b_main_9.css" rel="stylesheet" type="text/css">
+                    <link href="./Supr admin_files/744903b_messi_10.css" rel="stylesheet" type="text/css">
+                    <link href="./Supr admin_files/744903b_core_11.css" rel="stylesheet" type="text/css">
+            
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js'
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://dev.geekcoding.net/admin/user/images/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://dev.geekcoding.net/admin/user/images/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://dev.geekcoding.net/admin/user/images/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://dev.geekcoding.net/admin/user/images/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://dev.geekcoding.net/admin/user/images/apple-touch-icon-57-precomposed.png">
+    
+    <script type="text/javascript">
+        //adding load class to body and hide page
+        document.documentElement.className += 'loadstate';
+    </script>
+
+    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+      
+    <body>
+    <!-- loading animation -->
+    <div id="qLoverlay"></div>
+    <div id="qLbar"></div>
+    
+    <div id="header">
+        
+        <div class="container">
+            <div class="navbar">
+                <div class="navbar-inner">
+
+                    <a class="brand" href="http://dev.geekcoding.net/admin/user/dashboard.html">
+                        Geekcoding.
+                        <span class="slogan">后台管理</span>
+                    </a>
+                    <div class="nav-no-collapse">
+                        <ul class="nav pull-right usernav">
+                            <li>
+                                <a href="http://dev.geekcoding.net/common/" target="_blank">
+                                    <span class="icon16 icomoon-icon-screen-2"></span>网站首页
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="http://dev.geekcoding.net/admin/user/group#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="icon16 icomoon-icon-mail-3"></span>
+                                    消息通知
+                                    <span class="notification">8</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="menu">
+                                        <ul class="messages">
+                                            <li class="header"> <strong>消息通知</strong>
+                                                (10) emails and (2) PM
+                                            </li>
+                                            <li>
+                                                <span class="icon">
+                                                    <span class="icon16 icomoon-icon-user-3"></span>
+                                                </span>
+                                                <span class="name">
+                                                    <a data-toggle="modal" href="http://dev.geekcoding.net/admin/user/group#myModal1"> <strong>Sammy Morerira</strong>
+                                                    </a>
+                                                    <span class="time">35 min ago</span>
+                                                </span>
+                                                <span class="msg">I have question about new function ...</span>
+                                            </li>
+                                            <li>
+                                                <span class="icon avatar">
+                                                                                                            <img src="./Supr admin_files/3439a3a_avatar_1.jpg" alt="">
+                                                        
+                                                </span>
+                                                <span class="name">
+                                                    <a data-toggle="modal" href="http://dev.geekcoding.net/admin/user/group#myModal1">
+                                                        <strong>George Michael</strong>
+                                                    </a>
+                                                    <span class="time">1 hour ago</span>
+                                                </span>
+                                                <span class="msg">I need to meet you urgent please call me ...</span>
+                                            </li>
+                                            <li>
+                                                <span class="icon">
+                                                    <span class="icon16 icomoon-icon-mail-3"></span>
+                                                </span>
+                                                <span class="name">
+                                                    <a data-toggle="modal" href="http://dev.geekcoding.net/admin/user/group#myModal1">
+                                                        <strong>Ivanovich</strong>
+                                                    </a>
+                                                    <span class="time">1 day ago</span>
+                                                </span>
+                                                <span class="msg">I send you my suggestion, please look and ...</span>
+                                            </li>
+                                            <li class="view-all">
+                                                <a href="http://dev.geekcoding.net/admin/user/group#">
+                                                    View all messages
+                                                    <span class="icon16 icomoon-icon-arrow-right-8"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="http://dev.geekcoding.net/admin/user/group#" class="dropdown-toggle avatar" data-toggle="dropdown">
+                                                                            <img src="./Supr admin_files/3439a3a_avatar_1.jpg" alt="" class="image">
+                                      
+                                    <span class="txt">admin@supr.com</span> <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="menu">
+                                        <ul>
+                                            <li>
+                                                <a href="http://dev.geekcoding.net/admin/user/group#">
+                                                    <span class="icon16 icomoon-icon-user-3"></span>
+                                                    Edit profile
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="http://dev.geekcoding.net/admin/user/group#">
+                                                    <span class="icon16 icomoon-icon-comments-2"></span>
+                                                    Approve comments
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="http://dev.geekcoding.net/admin/user/group#">
+                                                    <span class="icon16 icomoon-icon-plus-2"></span>
+                                                    Add user
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="http://dev.geekcoding.net/admin/user/index.html">
+                                    <span class="icon16 icomoon-icon-exit"></span>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.nav-collapse --> </div>
+                <!-- /navbar-inner --> </div>
+            <!-- /navbar --> </div>    </div>
+    <!-- End #header -->    
+
+    <div id="wrapper" class="container">
+        <div class="row">
+
+            <!--Sidebar area -->
+            <div class="span3">
+
+                <!--Responsive navigation button-->  
+                <div class="resBtn">
+                    <a href="http://dev.geekcoding.net/admin/user/group#"><span class="icon16 minia-icon-list-3"></span></a>
+                </div>
+
+                <!--Sidebar background-->
+                <div id="sidebarbg"></div>
+                <!--Sidebar content-->
+                
+                <div id="sidebar">
+                    <div class="shortcuts">
+                        <ul>
+                            <li><a href="http://dev.geekcoding.net/admin/user/support.html" class="tip" oldtitle="Support section" title=""><span class="icon24 icomoon-icon-support"></span></a></li>
+                            <li><a href="http://dev.geekcoding.net/admin/user/group#" class="tip" oldtitle="Database backup" title=""><span class="icon24 icomoon-icon-database"></span></a></li>
+                            <li><a href="http://dev.geekcoding.net/admin/user/charts.html" class="tip" oldtitle="Sales statistics" title=""><span class="icon24 icomoon-icon-pie-2"></span></a></li>
+                            <li><a href="http://dev.geekcoding.net/admin/user/group#" class="tip" oldtitle="Write post" title=""><span class="icon24 icomoon-icon-pencil"></span></a></li>
+                        </ul>
+                    </div>
+                   <div class="sidenav">
+    <div class="sidebar-widget" style="margin: -1px 0 0 0;">
+        <h5 class="title" style="margin-bottom:0">管理菜单</h5>
+    </div>
+    <div class="mainnav">
+                        <ul>
+                    <li icon="icomoon-icon-home-2" class="first">        <a href="http://dev.geekcoding.net/admin">
+            <span class="icon16 icomoon-icon-home-2"></span>
+    后台首页</a>        
+    </li>
+
+            <li icon="icomoon-icon-cog">        <a href="http://dev.geekcoding.net/admin/user/group#common">
+            <span class="icon16 icomoon-icon-cog"></span>
+    全局设置</a>        
+    </li>
+
+            <li icon="entypo-icon-users">        <a href="http://dev.geekcoding.net/admin/user/group#user" class="hasUl">
+            <span class="icon16 entypo-icon-users"></span>
+    用户管理<span class="hasDrop icon16 icomoon-icon-arrow-down-2"></span></a>                <ul class="sub menu_level_1">
+                    <li icon="icomoon-icon-users-2" class="first">        <a href="http://dev.geekcoding.net/admin/user/group">
+            <span class="icon16 icomoon-icon-users-2"></span>
+    用户组管理</a>        
+    </li>
+
+            <li icon="icomoon-icon-user">        <a href="http://dev.geekcoding.net/admin/user/user">
+            <span class="icon16 icomoon-icon-user"></span>
+    用户管理</a>        
+    </li>
+
+            <li icon="icomoon-icon-cogs" class="last">        <a href="http://dev.geekcoding.net/admin/user/role">
+            <span class="icon16 icomoon-icon-cogs"></span>
+    权限设置</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+            <li icon="icomoon-icon-camera-7" class="last">        <a href="http://dev.geekcoding.net/admin/user/group#lesson" class="hasUl">
+            <span class="icon16 icomoon-icon-camera-7"></span>
+    课程管理<span class="hasDrop icon16 icomoon-icon-arrow-down-2"></span></a>                <ul class="sub menu_level_1">
+                    <li icon="minia-icon-list-4" class="first">        <a href="http://dev.geekcoding.net/admin/lesson/type">
+            <span class="icon16 minia-icon-list-4"></span>
+    分类管理</a>        
+    </li>
+
+            <li icon="icomoon-icon-flip-2">        <a href="http://dev.geekcoding.net/admin/lesson/level">
+            <span class="icon16 icomoon-icon-flip-2"></span>
+    级别管理</a>        
+    </li>
+
+            <li icon="icomoon-icon-movie">        <a href="http://dev.geekcoding.net/admin/lesson/lesson">
+            <span class="icon16 icomoon-icon-movie"></span>
+    课程管理</a>        
+    </li>
+
+            <li icon="icomoon-icon-play">        <a href="http://dev.geekcoding.net/admin/lesson/video">
+            <span class="icon16 icomoon-icon-play"></span>
+    课时管理</a>        
+    </li>
+
+            <li icon="icomoon-icon-tag-3" class="last">        <a href="http://dev.geekcoding.net/admin/lesson/tag">
+            <span class="icon16 icomoon-icon-tag-3"></span>
+    标签管理</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+
+    </ul>
+</div>
+</div>
+
+<div class="sidebar-widget">
+                        <h5 class="title">Monthly Bandwidth Transfer</h5>
+                        <div class="content">
+                            <span class="icon16 icomoon-icon-loop left"></span>
+                            <div class="progress progress-mini progress-danger left tip" oldtitle="87%" title="">
+                              <div class="bar" style="width: 87%;"></div>
+                            </div>
+                            <span class="percent">87%</span>
+                            <div class="stat">19419.94 / 12000 MB</div>
+                        </div>
+
+                    </div><!-- End .sidenav-widget -->
+
+                    <div class="sidebar-widget">
+                        <h5 class="title">Disk Space Usage</h5>
+                        <div class="content">
+                            <span class="icon16 icomoon-icon-drive left"></span>
+                            <div class="progress progress-mini progress-success left tip" oldtitle="16%" title="">
+                              <div class="bar" style="width: 16%;"></div>
+                            </div>
+                            <span class="percent">16%</span>
+                            <div class="stat">304.44 / 8000 MB</div>
+                        </div>
+
+                    </div><!-- End .sidenav-widget -->
+
+                    <div class="sidebar-widget">
+                        <h5 class="title">Ad sense stats</h5>
+                        <div class="content">
+                            
+                            <div class="stats">
+                                <div class="item">
+                                    <div class="head clearfix">
+                                        <div class="txt">Advert View</div>
+                                    </div>
+                                    <span class="icon16 icomoon-icon-eye left"></span>
+                                    <div class="number">21,501</div>
+                                    <div class="change">
+                                        <span class="icon24 icomoon-icon-arrow-up-2 green"></span>
+                                        5%
+                                    </div>
+                                    <span id="stat1" class="spark"><canvas style="display: inline-block; width: 34px; height: 15px; vertical-align: top;" width="34" height="15"></canvas></span>
+                                </div>
+                                <div class="item">
+                                    <div class="head clearfix">
+                                        <div class="txt">Clicks</div>
+                                    </div>
+                                    <span class="icon16 icomoon-icon-thumbs-up left"></span>
+                                    <div class="number">308</div>
+                                    <div class="change">
+                                        <span class="icon24 icomoon-icon-arrow-down-2 red"></span>
+                                        8%
+                                    </div>
+                                    <span id="stat2" class="spark"><canvas style="display: inline-block; width: 34px; height: 15px; vertical-align: top;" width="34" height="15"></canvas></span>
+                                </div>
+                                <div class="item">
+                                    <div class="head clearfix">
+                                        <div class="txt">Page CTR</div>
+                                    </div>
+                                    <span class="icon16 icomoon-icon-heart left"></span>
+                                    <div class="number">4%</div>
+                                    <div class="change">
+                                        <span class="icon24 icomoon-icon-arrow-down-2 red"></span>
+                                        1%
+                                    </div>
+                                    <span id="stat3" class="spark"><canvas style="display: inline-block; width: 34px; height: 15px; vertical-align: top;" width="34" height="15"></canvas></span>
+                                </div>
+                                <div class="item">
+                                    <div class="head clearfix">
+                                        <div class="txt">Earn money</div>
+                                    </div>
+                                    <span class="icon16 icomoon-icon-coin left"></span>
+                                    <div class="number">$376</div>
+                                    <div class="change">
+                                        <span class="icon24 icomoon-icon-arrow-up-2 green"></span>
+                                        26%
+                                    </div>
+                                    <span id="stat4" class="spark"><canvas style="display: inline-block; width: 34px; height: 15px; vertical-align: top;" width="34" height="15"></canvas></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div><!-- End .sidenav-widget -->                </div>
+
+            </div><!-- End .span3 -->
+
+            <!--content area -->
+            <div class="span9">
+
+                <!--Body cotnent-->
+                <div id="content" class="clearfix">
+                    <div class="heading">
+
+    <h3>首页</h3>
+
+    <div class="resBtnSearch">
+        <a href="http://dev.geekcoding.net/admin/user/group#">
+            <span class="icon16 icomoon-icon-search-3"></span>
+        </a>
+    </div>
+
+    <div class="search">
+
+        <form id="searchform" action="http://dev.geekcoding.net/admin/user/search.html">
+            <input type="text" id="tipue_search_input" class="top-search text" placeholder="Search here ...">
+            <input type="submit" id="tipue_search_button" class="search-btn nostyle" value="">
+        </form>
+
+    </div>
+    <!-- End search -->
+
+    <ul class="breadcrumb">
+        <li>当前位置:</li>
+        <li>
+            <a href="http://dev.geekcoding.net/admin/" class="tip" oldtitle="返回首页" title="">
+                <span class="icon16 icomoon-icon-screen-2"></span>
+            </a>
+            <span class="divider">
+                <span class="icon16 icomoon-icon-arrow-right-2"></span>
+            </span>
+        </li>
+                <li class="active">首页</li>
+            </ul>
+
+</div>                    <a id="gaddbtn" href="./Supr admin_files/Supr admin.html" class="btn marginR10 marginB10" title="添加用户组">添加用户组</a>
+<div class="row-fluid">
+	<div class="span12">
+		<div class="box hover">
+
+			<div class="title">
+
+				<h4>
+					<span class="icon16 icomoon-icon-equalizer-2"></span>
+					<span>用户组管理</span>
+					<form class="box-form right" action="">
+						<a class="btn dropdown-toggle" data-toggle="dropdown" href="http://dev.geekcoding.net/admin/user/group#">
+							<span class="icon16 icomoon-icon-cog-2"></span>
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a data-toggle="modal" data-target="#modal">
+									<span class="minia-icon-file-add"></span>
+									增加用户组
+								</a>
+							</li>
+							<li>
+								<a href="http://dev.geekcoding.net/admin/user/group#">
+									<span class="icon-pencil"></span>
+									编辑用户组
+								</a>
+							</li>
+							<li>
+								<a href="http://dev.geekcoding.net/admin/user/group#">
+									<span class="icon-trash"></span>
+									删除用户组
+								</a>
+							</li>
+						</ul>
+					</form>
+
+				</h4>
+			</div>
+			<div class="content noPad">
+				<table id="grouplist" class="responsive table table-bordered">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>用户组名称</th>
+							<th>成员数量</th>
+							<th>拥有权限</th>
+							<th id="masterCh" class="ch">
+								<div class="checker" id="uniform-undefined"><span><input type="checkbox" name="checkbox" value="all" class="styled" style="opacity: 0;"></span></div>
+							</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+												<tr>
+							<td>208</td>
+							<td>啊是实打实</td>
+							<td>
+														    							    	    						    							    	0
+							</td>
+							<td>
+															</td>
+							<td class="chChildren">
+								<div class="checker" id="uniform-undefined"><span><input type="checkbox" name="checkbox" value="1" class="styled" style="opacity: 0;"></span></div>
+							</td>
+							<td>
+								<div class="controls center">
+									<a id="edit208" class="editgroup tip gkmodal" href="http://dev.geekcoding.net/admin/user/group#editmodal" oldtitle="编辑用户组" title="">
+										<span class="icon12 icomoon-icon-pencil"></span>
+									</a>
+									<a class="delgroup gdelbtn tip gkmodal" href="http://dev.geekcoding.net/admin/user/group#delmodal" data-ajax="/admin/user/groupdel/208" oldtitle="删除用户组" title="">
+										<span class="icon12 icomoon-icon-remove"></span>
+									</a>
+								</div>
+							</td>
+						</tr>
+												<tr>
+							<td>286</td>
+							<td>asdfdsf</td>
+							<td>
+														    							    	    						    							    	0
+							</td>
+							<td>
+															</td>
+							<td class="chChildren">
+								<div class="checker" id="uniform-undefined"><span><input type="checkbox" name="checkbox" value="1" class="styled" style="opacity: 0;"></span></div>
+							</td>
+							<td>
+								<div class="controls center">
+									<a id="edit286" class="editgroup tip gkmodal" href="http://dev.geekcoding.net/admin/user/group#editmodal" oldtitle="编辑用户组" title="">
+										<span class="icon12 icomoon-icon-pencil"></span>
+									</a>
+									<a class="delgroup gdelbtn tip gkmodal" href="http://dev.geekcoding.net/admin/user/group#delmodal" data-ajax="/admin/user/groupdel/286" oldtitle="删除用户组" title="">
+										<span class="icon12 icomoon-icon-remove"></span>
+									</a>
+								</div>
+							</td>
+						</tr>
+											</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>
+<div id="delmodal" style="display: none;">
+	<div class="title">删除用户组</div>
+	<div class="content">是否确定删除此用户组?</div>
+	<div class="footer">
+		<a id="delok" class="button mbtn-success">确定</a>
+		<a id="delcancle" class="button">取消</a>
+	</div>
+</div>
+<div id="editmodal" style="display: none;">
+	<div class="title">编辑用户组</div>
+	<div class="content"><div class="row-fluid">
+    <div class="span12">
+        <form class="form-horizontal" action="http://dev.geekcoding.net/admin/user/groupadd">
+            <div class="form-row row-fluid">
+                <div class="span12">
+                    <div class="row-fluid">
+                        <label class="form-label span4" for="groupname">用户组名称</label>
+                        <input class="span8 text" id="groupname" name="groupname" type="text">    
+                    </div>
+                </div>
+            </div>
+            <div class="form-row row-fluid">
+                <div class="span12">
+                    <div class="row-fluid">
+                        <label class="form-label span4" for="roles">用户组权限</label>
+                        <div class="span8 controls">
+                            <select id="roles" name="roles[]" class="nostyle" multiple="multiple">
+                                                            <option value="ROLE_ADMIN">ROLE_ADMIN</option>
+                                                            <option value="ROLE_SUPER_ADMIN">ROLE_SUPER_ADMIN</option>
+                                                        </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div></div>
+	<div class="footer">
+		<a id="delok" class="button mbtn-success">确定</a>
+		<a id="delcancle" class="button">取消</a>
+	</div>
+</div>
+<div id="addgroup" style="display:none;">
+	
+<div class="content"><div class="row-fluid">
+    <div class="span12">
+        <form class="form-horizontal" action="http://dev.geekcoding.net/admin/user/groupadd">
+            <div class="form-row row-fluid">
+                <div class="span12">
+                    <div class="row-fluid">
+                        <label class="form-label span4" for="groupname">用户组名称</label>
+                        <input class="span8 text" id="groupname" name="groupname" type="text">    
+                    </div>
+                </div>
+            </div>
+            <div class="form-row row-fluid">
+                <div class="span12">
+                    <div class="row-fluid">
+                        <label class="form-label span4" for="roles">用户组权限</label>
+                        <div class="span8 controls">
+                            <select id="roles" name="roles[]" class="nostyle" multiple="multiple">
+                                                            <option value="ROLE_ADMIN">ROLE_ADMIN</option>
+                                                            <option value="ROLE_SUPER_ADMIN">ROLE_SUPER_ADMIN</option>
+                                                        </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div></div></div>
+<div id="addmodal" style="display: none;">
+	<div class="title">添加用户组</div>
+	<div class="content"><div class="row-fluid">
+    <div class="span12">
+        <form class="form-horizontal" action="http://dev.geekcoding.net/admin/user/groupadd">
+            <div class="form-row row-fluid">
+                <div class="span12">
+                    <div class="row-fluid">
+                        <label class="form-label span4" for="groupname">用户组名称</label>
+                        <input class="span8 text" id="groupname" name="groupname" type="text">    
+                    </div>
+                </div>
+            </div>
+            <div class="form-row row-fluid">
+                <div class="span12">
+                    <div class="row-fluid">
+                        <label class="form-label span4" for="roles">用户组权限</label>
+                        <div class="span8 controls">
+                            <select id="roles" name="roles[]" class="nostyle" multiple="multiple">
+                                                            <option value="ROLE_ADMIN">ROLE_ADMIN</option>
+                                                            <option value="ROLE_SUPER_ADMIN">ROLE_SUPER_ADMIN</option>
+                                                        </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div></div>
+    <div class="footer">
+		<a id="saveok" class="button mbtn-success">保存</a>
+		<a id="savecancle" class="button">取消</a>
+	</div>
+</div>
+<div id="grouptable" style="display:none;">
+	<table>
+		<tbody><tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="chChildren">
+				<div class="checker" id="uniform-undefined"><span><input type="checkbox" name="checkbox" value="1" class="styled" style="opacity: 0;"></span></div>
+			</td>
+			<td>
+                <div class="controls center">
+				    <a class="editgroup gkmodal" href="http://dev.geekcoding.net/admin/user/group#" title="编辑用户组">
+					    <span class="icon12 icomoon-icon-pencil"></span>
+				    </a>
+				    <a class="delgroup gkmodal" href="http://dev.geekcoding.net/admin/user/group#delmodal" data-ajax="" title="删除用户组">
+					    <span class="icon12 icomoon-icon-remove"></span>
+				    </a>
+			    </div>			
+			</td>
+		</tr>
+	</tbody></table>
+</div>
+                </div>
+
+            </div><!-- End .span9 -->
+                
+        </div><!-- End #wrapper .row -->
+
+    </div><!-- End .container -->
+                        <script type="text/javascript" src="./Supr admin_files/3fa1097_router_1.js"></script>
+                    <script type="text/javascript" src="./Supr admin_files/3fa1097_fos_js_routes_2.js"></script>
+                    <script type="text/javascript" src="./Supr admin_files/3fa1097_jquery_3.js"></script>
+                    <script type="text/javascript" src="./Supr admin_files/3fa1097_base_4.js"></script>
+                    <script type="text/javascript" src="./Supr admin_files/3fa1097_messi_5.js"></script>
+                    <script type="text/javascript" src="./Supr admin_files/3fa1097_jquery.form_6.js"></script>
+                    <script type="text/javascript" src="./Supr admin_files/3fa1097_groupmanager_7.js"></script>
+                    <script type="text/javascript" src="./Supr admin_files/3fa1097_jquery.gktip_8.js"></script>
+                    <script type="text/javascript" src="./Supr admin_files/3fa1097_jquery.gkmodal_9.js"></script>
+                    <script type="text/javascript" src="./Supr admin_files/3fa1097_core_10.js"></script>
+                
+
+<a href="http://dev.geekcoding.net/admin/user/group#" id="toTop" style="display: none;"><span id="toTopHover"></span>To Top</a><embed id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" height="0" width="0"></body></html>

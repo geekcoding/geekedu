@@ -1,0 +1,11 @@
+services:
+    site_user.registration.form.type:
+        class: Site\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: site_user_registration }
+    site_user.login_success:
+        class: Site\UserBundle\EventListener\LoginSuccessListener
+        arguments: [@router]
+        tags:
+            - { name: kernel.event_subscriber }

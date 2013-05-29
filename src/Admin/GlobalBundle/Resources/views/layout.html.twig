@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Supr admin</title>
+    <meta name="author" content="SuggeElson" />
+    <meta name="description" content="Supr admin template - new premium responsive admin template. This template is designed to help you build the site administration without losing valuable time.Template contains all the important functions which must have one backend system.Build on great twitter boostrap framework" />
+    <meta name="keywords" content="admin, admin template, admin theme, responsive, responsive admin, responsive admin template, responsive theme, themeforest, 960 grid system, grid, grid theme, liquid, masonry, jquery, administration, administration template, administration theme, mobile, touch , responsive layout, boostrap, twitter boostrap" />
+    <meta name="application-name" content="Supr admin template" />
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Le styles -->
+    <!-- Use new way for google web fonts 
+    http://www.smashingmagazine.com/2012/07/11/avoiding-faux-weights-styles-google-web-fonts -->
+    <!-- Headings -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />  -->
+    <!-- Text -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css' /> --> 
+    <!--[if lt IE 9]>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:700" rel="stylesheet" type="text/css" />
+    <![endif]-->
+
+    <!-- Core stylesheets do not remove -->
+    {% block stylesheets %}
+        {% stylesheets 
+            '@AdminGlobalBundle/Resources/public/css/bootstrap/bootstrap.min.css'
+            '@AdminGlobalBundle/Resources/public/css/bootstrap/bootstrap-responsive.min.css'
+            '@AdminGlobalBundle/Resources/public/css/supr-theme/jquery.ui.supr.css'
+            '@AdminGlobalBundle/Resources/public/css/icons.css'
+            '@AdminGlobalBundle/Resources/public/plugins/misc/qtip/jquery.qtip.css'
+            '@AdminGlobalBundle/Resources/public/plugins/misc/fullcalendar/fullcalendar.css'
+            '@AdminGlobalBundle/Resources/public/plugins/misc/search/tipuesearch.css'
+            '@AdminGlobalBundle/Resources/public/plugins/forms/uniform/uniform.default.css'
+            '@AdminGlobalBundle/Resources/public/css/main.css'
+            '@AdminGlobalBundle/Resources/public/custom/messi/messi.css'
+            '@AdminGlobalBundle/Resources/public/custom/css/core.css'
+            filter='css_url_rewrite' %}
+            <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+        {% endstylesheets %}
+    {% endblock %}
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js'
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon-57-precomposed.png" />
+    
+    <script type="text/javascript">
+        //adding load class to body and hide page
+        document.documentElement.className += 'loadstate';
+    </script>
+
+    </head>
+      
+    <body>
+    <!-- loading animation -->
+    <div id="qLoverlay"></div>
+    <div id="qLbar"></div>
+    
+    <div id="header">
+        {% include 'AdminGlobalBundle:Public:header.html.twig' %}
+    </div>
+    <!-- End #header -->    
+
+    <div id="wrapper" class="container">
+        <div class="row">
+
+            <!--Sidebar area -->
+            <div class="span3">
+
+                <!--Responsive navigation button-->  
+                <div class="resBtn">
+                    <a href="#"><span class="icon16 minia-icon-list-3"></span></a>
+                </div>
+
+                <!--Sidebar background-->
+                <div id="sidebarbg"></div>
+                <!--Sidebar content-->
+                
+                <div id="sidebar">
+                    <div class="shortcuts">
+                        <ul>
+                            <li><a href="support.html" title="Support section" class="tip"><span class="icon24 icomoon-icon-support"></span></a></li>
+                            <li><a href="#" title="Database backup" class="tip"><span class="icon24 icomoon-icon-database"></span></a></li>
+                            <li><a href="charts.html" title="Sales statistics" class="tip"><span class="icon24 icomoon-icon-pie-2"></span></a></li>
+                            <li><a href="#" title="Write post" class="tip"><span class="icon24 icomoon-icon-pencil"></span></a></li>
+                        </ul>
+                    </div>
+                   {% include 'AdminGlobalBundle:Public:sidebar.html.twig' %}
+                </div>
+
+            </div><!-- End .span3 -->
+
+            <!--content area -->
+            <div class="span9">
+
+                <!--Body cotnent-->
+                <div id="content" class="clearfix">
+                    {% include 'AdminGlobalBundle:Public:contentheader.html.twig' %}
+                    {% block content %}{% endblock %}
+                </div>
+
+            </div><!-- End .span9 -->
+                
+        </div><!-- End #wrapper .row -->
+
+    </div><!-- End .container -->
+    {% block javascripts %}
+        {% javascripts
+            'bundles/fosjsrouting/js/router.js'
+            'js/fos_js_routes.js'
+            '@AdminGlobalBundle/Resources/public/js/core/jquery.js'
+            '@AdminGlobalBundle/Resources/public/js/core/base.js'
+            '@AdminGlobalBundle/Resources/public/custom/messi/messi.js'
+            '@AdminGlobalBundle/Resources/public/custom/form/jquery.form.js'
+            '@AdminGlobalBundle/Resources/public/custom/plugins/jquery.gktip.js'
+            '@AdminGlobalBundle/Resources/public/custom/plugins/jquery.gkmodal.js'
+        %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,7 @@
+parameters:
+#    geek_hmvc.example.class: Geek\HmvcBundle\Example
+
+services:
+   model:
+       class: Hmvc\ModelLoad
+       arguments: [ @doctrine_mongodb.odm.default_document_manager ]

@@ -1,0 +1,1 @@
+fos.Router.setData({"base_url":"","routes":{"site_admin_user_groupadd":{"tokens":[["text","\/admin\/user\/groupadd"]],"defaults":[],"requirements":[],"hosttokens":[]},"site_admin_user_groupdel":{"tokens":[["variable","\/","[^\/]++","id"],["text","\/admin\/user\/groupdel"]],"defaults":[],"requirements":[],"hosttokens":[]}},"prefix":"","host":"localhost","scheme":"http"});

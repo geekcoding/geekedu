@@ -1,0 +1,29 @@
+<div class="row-fluid">
+    <div class="span12">
+        <form class="form-horizontal" action="{{ path('admin_user_groupadd') }}">
+            <div class="form-row row-fluid">
+                <div class="span12">
+                    <div class="row-fluid">
+                        <label class="form-label span4" for="groupname">用户组名称</label>
+                        <input class="span8" id="groupname" name="groupname" type="text" />    
+                    </div>
+                </div>
+            </div>
+            <div class="form-row row-fluid">
+                <div class="span12">
+                    <div class="row-fluid">
+                        <label class="form-label span4" for="roles">用户组权限</label>
+                        <div class="span8 controls">
+                            <select id="roles" name="roles[]" class="nostyle" multiple="multiple" >
+                            <option value="ROLE_USER" selected="selected">ROLE_USER</option>
+                            {% for role,value in roles %}
+                                <option value="{{role}}">{{role}}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

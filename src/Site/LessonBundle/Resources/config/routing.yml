@@ -1,0 +1,3 @@
+site_lesson_homepage:
+    pattern:  /
+    defaults: { _controller: SiteLessonBundle:Default:index }
