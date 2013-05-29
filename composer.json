@@ -7,8 +7,8 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.2.*",
-        "doctrine/orm": "~2.2,>=2.2.3",
-        "doctrine/doctrine-bundle": "1.2.*",
+        "doctrine/orm": "dev-master",
+        "doctrine/doctrine-bundle": "dev-master",
         "twig/extensions": "1.0.*",
         "symfony/assetic-bundle": "2.1.*",
         "symfony/swiftmailer-bundle": "2.2.*",
@@ -24,7 +24,6 @@
         "knplabs/knp-menu-bundle":"dev-master",
         "friendsofsymfony/jsrouting-bundle": "1.1.*",
         "fkr/cssurlrewrite-bundle": "*",
-        "doctrine/phpcr-odm": "dev-master",
         "leafo/lessphp": "dev-master"
     },
     "scripts": {
