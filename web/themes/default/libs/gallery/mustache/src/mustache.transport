@@ -1,3 +1,0 @@
-define(function(require, exports, module) {
-// @include https://raw.github.com/janl/mustache.js/{{version}}/mustache.js
-});
