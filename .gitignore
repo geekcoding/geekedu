@@ -1,6 +1,5 @@
 /web/bundles/
 /web/uploads/videos/
-/app/bootstrap.php.cache
 /app/cache/*
 /app/logs/*
 /build/
