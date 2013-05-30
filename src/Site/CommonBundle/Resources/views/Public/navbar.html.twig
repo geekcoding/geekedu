@@ -30,8 +30,8 @@
               </li>
             </ul>
             {% else %}
-            <a class="nav-btn btn" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-            <a class="nav-btn btn" href="{{ path('fos_user_registration_register') }}" title="">注册</a>
+              <a class="m-btn sm rnd" href="{{ path('fos_user_security_login') }}">登录 && 注册</a>
+              <!-- <a class="m-btn sm green rnd" href="{{ path('fos_user_registration_register') }}">注册</a> -->
             {% endif %}
           </div>
         </div>

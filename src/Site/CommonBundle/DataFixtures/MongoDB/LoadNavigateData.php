@@ -45,11 +45,12 @@ class LoadNavigateData extends AbstractFixture implements OrderedFixtureInterfac
                 'order' => 4
             ),
             array(
-                'name' => '下载',
-                'link' => '#',
+                'name' => '开源',
+                'link' => 'http://open.geekcoding.net',
                 'tip' => '很多东西不是必须的但是还是必需的,来这里可以下载到也许你正在找的',
-                'icon' => 'icon-download-alt',
-                'order' => 5
+                'icon' => 'icon-github-sign',
+                'order' => 5,
+                'blank' => true
             ),
         );
         $this->insertData($manager,$navs);
@@ -64,6 +65,8 @@ class LoadNavigateData extends AbstractFixture implements OrderedFixtureInterfac
             $nav->setTip($value['tip']);
             $nav->setIcon($value['icon']);
             $nav->setOrder($value['order']);
+            if(isset($value['blank']))
+                $nav->setBlank($value['blank']);
             $manager->persist($nav);
             $manager->flush();
         }

@@ -162,26 +162,4 @@ class Navigate
     {
         return $this->order;
     }
-
-    /**
-     * Set blank
-     *
-     * @param boolean $blank
-     * @return self
-     */
-    public function setBlank($blank)
-    {
-        $this->blank = $blank;
-        return $this;
-    }
-
-    /**
-     * Get blank
-     *
-     * @return boolean $blank
-     */
-    public function getBlank()
-    {
-        return $this->blank;
-    }
 }
