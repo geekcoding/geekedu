@@ -52,7 +52,12 @@ class RegistrationController extends BaseController
                 return $response;
             }
         }
-
+        if($request->isXmlHttpRequest()){
+            return $this->container->get('templating')
+            ->renderResponse('SiteUserBundle:Registration:register_content.html.twig', array(
+                'form' => $form->createView(),
+            ));
+        }
         return $this->container->get('templating')->renderResponse('SiteUserBundle:Registration:register.html.twig', array(
             'form' => $form->createView(),
         ));

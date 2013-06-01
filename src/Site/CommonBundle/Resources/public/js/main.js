@@ -2,7 +2,8 @@ var $mediaplayer = function(){$('audio,video').mediaelementplayer({
       success: function(player, node) {
         $('#' + node.id + '-mode').html('mode: ' + player.pluginType);
       }
-    });}
+    });
+}
 $(function() {
     $('.carousel').carousel({
         interval: 4000
@@ -31,27 +32,39 @@ $(function() {
         }
     });
     $mediaplayer.call();
-//    $('.lightbox').click(function(){
-//        var _lightbox = $(this);
-//        $id = $(this).attr('id');
-//        $id_arr = $id.split('-');
-//        var url = BASE_URI+'common/frontend/pubvideo/'+$id_arr[1];
-//        $("#inline").find('video').attr('src',url);
-//        $.fancybox.open($("#inline"),{
-//            scrolling: false,
-//            closeBtn: true,
-//            keys: {
-//                close: []
-//            },
-//            ajax:{
-//	           dataType : 'html',
-//	           headers  : { 'X-fancyBox': true }
-//            },
-//            helpers: {
-//                overlay: {
-//                    closeClick: false,
-//                }
-//            }
-//        });
-//    });
+    $(".pushstate").on('click',function(){
+        return pushstate($(this),$(this).closest('.container'),$(this).closest('.span8').find('.pushslide'));
+    });
 });
+function pushstate(obj, container, slide) {
+    var obj = obj;
+    var href = obj.attr('href');
+    var container = container;
+    var slide = slide;
+    var width = slide.css('width');
+    var height = slide.css('height');
+    var ajaxloader = $(".ajaxloader").clone(true).show();
+    var nslide = slide.clone(true).html('').css({
+        'height' : height
+    }).prepend(ajaxloader).hide().insertAfter(slide);
+    slide.parent().css({'overflow': 'hidden','position': 'relative' });
+    slide.animate({
+        'margin-left': '-' + width+'px'
+    }, 'slow', function() {
+        $.ajax({
+            beforeSend: function() {
+                nslide.show();
+                slide.remove();
+            },
+            url: href,
+            dataType: 'html',
+            success: function(data, textStatus) {
+                container.html(data);
+                $(".pushstate").on('click', function() {
+                    return pushstate($(this), $(this).closest('.container'), $(this).closest('.span8').find('.pushslide'));
+                });
+            }
+        });
+    });
+    return false;
+}

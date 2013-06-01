@@ -1,21 +1,6 @@
 {% extends "SiteUserBundle::layout.html.twig" %}
 {% block fos_user_content %}
 <div class="container">
-	<div class="row-fluid">
-		<div class="span2"></div>
-		<div class="span8 formbox">
-			<blockquote>
-                  <div class="page-header">
-                    <div class="row-fluid">
-                      <div class="span12">
-                        <h4>注册帐号</h4>
-                        <small>马上拥有geekcoding的会员帐号!</small>
-                      </div>
-                    </div>
-                  </div>
-             </blockquote>
-			{% include "@user/registration/register_content.html.twig" %}
-		</div>
-	</div>
+	{% include "SiteUserBundle:Registration:register_content.html.twig" %}
 </div>
 {% endblock fos_user_content %}
