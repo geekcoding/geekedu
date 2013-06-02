@@ -46,7 +46,7 @@ doctrine_mongodb:
             options: 
                 username: %database_user%
                 password: %database_passwd%
-                db: '%database_name%'
+                db: %database_name%
     document_managers:
         default:
             auto_mapping: true
