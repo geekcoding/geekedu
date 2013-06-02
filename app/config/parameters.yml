@@ -2,8 +2,8 @@ parameters:
     database_server:   localhost
     database_port:     27017
     database_name:     geekcoding
-    database_username: ~
-    database_password: ~
+    database_user:     admin
+    database_passwd:   123456
 
     mailer_transport:  smtp
     mailer_host:       127.0.0.1

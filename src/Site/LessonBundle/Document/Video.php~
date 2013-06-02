@@ -212,4 +212,26 @@ class Video
     {
         return $this->ctime;
     }
+
+    /**
+     * Set public
+     *
+     * @param boolean $public
+     * @return self
+     */
+    public function setPublic($public)
+    {
+        $this->public = $public;
+        return $this;
+    }
+
+    /**
+     * Get public
+     *
+     * @return boolean $public
+     */
+    public function getPublic()
+    {
+        return $this->public;
+    }
 }
