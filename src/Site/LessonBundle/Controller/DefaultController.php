@@ -3,10 +3,11 @@
 namespace Site\LessonBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
     	$local = array(
 			array(
@@ -20,6 +21,9 @@ class DefaultController extends Controller
     		'levels' => $this->getLevels(),
     		'lessons' => $this->getLessons()
     	);
+        if($request->isXmlHttpRequest()){
+            return $this->render('SiteLessonBundle:Default:index_content.html.twig',$data);
+        }
         return $this->render('SiteLessonBundle:Default:index.html.twig',$data);
     }
     protected function getLevels()

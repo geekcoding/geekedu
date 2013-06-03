@@ -1,4 +1,5 @@
 {% form_theme form with 'SiteUserBundle:Form:fields.html.twig' %}
+<div class="container">
 <div class="row-fluid block">
 	<div class="span2"></div>
 	<div class="span8">
@@ -18,10 +19,11 @@
 				{{form_widget(form)}}
 				<div class="pull-left offset3">
 					已经有帐号了?
-					<a class="pushstate" href="{{ path('fos_user_security_login') }}">马上登录</a>
+					<a class="security" href="{{ path('fos_user_security_login') }}">马上登录</a>
 					<input class="btn btn-success" type="submit" value="立即{{ 'registration.submit'|trans }}" />
 				</div>
 			</form>
 		</div>
 	</div>
+</div>
 </div>
