@@ -1,0 +1,21 @@
+<header>
+  <div class="container">
+    <div class="row-fluid block">
+      <div class="span7">
+        <div class="alert alert-advertise">GEEKCODING正在紧张开发中,具体请等待公告!</div>
+      </div>
+      <div class="span5">
+        <ul class="nav nav-pills pull-right">
+          {% for navi in navigates %}
+          <li>
+            <a href="{{navi.link}}" {% if navi.blank %} target="_blank" {% else %} class='menupush' {% endif %} >
+              {% if navi.icon %} <i class="{{navi.icon}}"></i>{% endif %}
+              &nbsp;{{navi.name}}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
