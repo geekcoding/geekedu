@@ -1,14 +1,15 @@
 {
     "name": "symfony/framework-standard-edition",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "license": "MIT",
+    "type": "project",
     "autoload": {
-        "psr-0": {"": ["src/Geek/HmvcBundle" , "src/"] , "Application": "app/" }
+        "psr-0": {"": ["src/Geek/HmvcBundle/" , "src/"] , "Application": "app/" }
     },
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.2.*",
-        "doctrine/orm": "dev-master",
-        "doctrine/doctrine-bundle": "dev-master",
+        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/doctrine-bundle": "1.2.*",
         "twig/extensions": "1.0.*",
         "symfony/assetic-bundle": "2.1.*",
         "symfony/swiftmailer-bundle": "2.2.*",
@@ -21,11 +22,10 @@
         "doctrine/mongodb-odm": "1.0.*@dev",
         "doctrine/mongodb-odm-bundle": "3.0.*@dev",
         "friendsofsymfony/user-bundle": "*",
-        "doctrine/doctrine-fixtures-bundle": "dev-master",
-        "knplabs/knp-menu-bundle":"dev-master",
-        "friendsofsymfony/jsrouting-bundle": "1.1.*",
-        "fkr/cssurlrewrite-bundle": "*",
-        "leafo/lessphp": "dev-master"
+        "doctrine/doctrine-fixtures-bundle": "*",
+        "knplabs/knp-menu-bundle":"@dev",
+        "friendsofsymfony/jsrouting-bundle": "~1.1",
+        "fkr/cssurlrewrite-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [
@@ -44,7 +44,7 @@
     "config": {
         "bin-dir": "bin"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "alpha",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
@@ -53,3 +53,4 @@
         }
     }
 }
+

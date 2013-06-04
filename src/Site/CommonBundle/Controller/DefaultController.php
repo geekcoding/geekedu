@@ -15,7 +15,7 @@ class DefaultController extends Controller
      * 首页控制器
      * @return string
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
     	$data = array(
             'common' => $this->get('model')->load('Site:CommonBundle:Common')->getShow(),
@@ -23,16 +23,21 @@ class DefaultController extends Controller
             'types' => $this->getLessonTypes(),
             'lessons' => $this->get('model')->load('Site:LessonBundle:Lesson')->getList()
      	);
+        if($request->isXmlHttpRequest() && $request->request->get('slide') == true){
+            return $this->render('SiteCommonBundle:Default:index_content.html.twig',$data);
+        }
         return $this->render('SiteCommonBundle:Default:index.html.twig',$data);
     }
 
     public function newVideoAction(Request $request)
     {
-        if($request->query->get('id'))
+        if($request->query->get('id') && $request->isXmlHttpRequest())
         {
             $id = $request->query->get('id');
             $data['video'] = $this->get('model')->load('Site:LessonBundle:Video')->getPublicOne($id);
             return $this->render('SiteCommonBundle:Default:newvideo.html.twig',$data);
+        }else{
+            return new Response('加载错误请重试');
         }
     }
     /**

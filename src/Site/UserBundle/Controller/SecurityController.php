@@ -13,7 +13,8 @@ class SecurityController extends BaseController
         $requestAttributes = $this->container->get('request')->attributes;
         if ($requestAttributes->get('_route') == 'admin_login') {
             $template = 'AdminUserBundle:Security:login.html.twig';
-        } else if($this->container->get('request')->isXmlHttpRequest()){
+        } else if($this->container->get('request')->isXmlHttpRequest() && 
+            $this->container->get('request')->request->get('slide') == true){
             $template = 'SiteUserBundle:Security:login_content.html.twig';
         }else {
             $template = 'SiteUserBundle:Security:login.html.twig';

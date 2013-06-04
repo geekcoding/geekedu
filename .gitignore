@@ -9,3 +9,8 @@
 /bin/
 /composer.phar
 /composer.lock
+*.[oa]
+*~
+*.swp
+*.bak
+*.DS_Store

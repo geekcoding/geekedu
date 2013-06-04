@@ -12,6 +12,7 @@
         '@SiteCommonBundle/Resources/public/libs/fancybox/source/helpers/jquery.fancybox-thumbs.css'
         '@SiteCommonBundle/Resources/public/libs/metro/css/m-styles.min.css'
         '@SiteCommonBundle/Resources/public/libs/jcontent/css/jcontent.css'
+        '@SiteCommonBundle/Resources/public/libs/Messi/messi.css'
         '@SiteCommonBundle/Resources/public/css/*.css'
       %}
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
@@ -38,12 +39,13 @@
       '@SiteCommonBundle/Resources/public/libs/fancybox/source/helpers/jquery.fancybox-media.js'
       '@SiteCommonBundle/Resources/public/libs/fancybox/source/helpers/jquery.fancybox-thumbs.js'
       '@SiteCommonBundle/Resources/public/libs/history/jquery.history.js'
+      '@SiteCommonBundle/Resources/public/libs/custom/jquery.gkstate.js'
+      '@SiteCommonBundle/Resources/public/libs/Messi/messi.js'
     %}
       <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
   </head>
   <body>
-    <div class="ajaxloader"></div>
     <!-- 加载顶部导航栏 -->
     {% include 'SiteCommonBundle:Public:navbar.html.twig' %}
     <!-- 全局布局层 -->

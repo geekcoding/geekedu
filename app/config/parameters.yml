@@ -1,14 +1,14 @@
+# This file is auto-generated during the composer install
 parameters:
-    database_server:   localhost
-    database_port:     27017
-    database_name:     geekcoding
-    database_user:     admin
-    database_passwd:   123456
-
-    mailer_transport:  smtp
-    mailer_host:       127.0.0.1
-    mailer_user:       ~
-    mailer_password:   ~
-
-    locale:            zh
-    secret:            2793667
+    database_driver: mongodb
+    database_host: 127.0.0.1
+    database_port: 27017
+    database_name: geekcoding
+    database_user: admin
+    database_password: 2793667
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: zh
+    secret: 2793667

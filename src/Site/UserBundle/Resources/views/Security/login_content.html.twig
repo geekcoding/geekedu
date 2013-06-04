@@ -1,8 +1,9 @@
 {% trans_default_domain 'FOSUserBundle' %}
+<div id="slide" class="container">
 <div class="row-fluid block">
 	<div class="span2"></div>
 	<div class="span8">
-		<div class="pushslide">
+		<div id="userslide">
 			<blockquote>
 				<div class="page-header">
 					<div class="row-fluid">
@@ -42,11 +43,12 @@
 					<input class="pull-left btn btn-success" type="submit" id="_submit" name="_submit" value="登录本站" />
 					<div class="pull-right">
 						还没有帐号?
-						<a type="button" class="btn pushstate" href="{{ path('fos_user_registration_register') }}">立即注册</a>
+						<a type="button" class="btn security" href="{{ path('fos_user_registration_register') }}">立即注册</a>
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
 	<div class="span2"></div>
+</div>
 </div>

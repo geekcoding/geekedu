@@ -1,7 +1,5 @@
 {% extends "SiteUserBundle::layout.html.twig" %}
 {% trans_default_domain 'FOSUserBundle' %}
 {% block fos_user_content %}
-<div class="container">
-	{% include "SiteUserBundle:Security:login_content.html.twig" %}
-</div>
+{% include "SiteUserBundle:Security:login_content.html.twig" %}
 {% endblock fos_user_content %}
