@@ -1,0 +1,29 @@
+{% form_theme form with 'SiteUserBundle:Form:fields.html.twig' %}
+<div id="slide" class="container">
+<div class="row-fluid block">
+	<div class="span2"></div>
+	<div class="span8">
+		<div id="userslide">
+			<blockquote>
+				<div class="page-header">
+					<div class="row-fluid">
+						<div class="span12">
+							<h4>注册帐号</h4>
+							<small>马上拥有geekcoding的会员帐号!</small>
+						</div>
+					</div>
+				</div>
+			</blockquote>
+			{% trans_default_domain 'FOSUserBundle' %}
+			<form  novalidate action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register form-horizontal form-box">
+				{{form_widget(form)}}
+				<div class="form-actions">
+					已经有帐号了?
+					<a class="security" href="{{ path('fos_user_security_login') }}">马上登录</a>
+					<input style="margin-top:-5px;" class="m-btn sm green rnd" type="submit" value="立即{{ 'registration.submit'|trans }}" />
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>

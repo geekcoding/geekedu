@@ -1,0 +1,15 @@
+<div id="slide" class="container">
+	<div class="row-fluid">
+		<div class="span12">
+			{{ render(controller('SiteCommonBundle:Public:local',{'local':local})) }}
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span3 lessonside">
+			{{ render(controller('SiteLessonBundle:Public:sidebar')) }}
+		</div>
+		<div class="span9">
+			{% include 'SiteLessonBundle:Default:main.html.twig' with { 'levels':levels , 'lessons':lessons } %}
+		</div>
+	</div>
+</div>

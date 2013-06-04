@@ -1,0 +1,43 @@
+admin_user_group:
+    pattern: /group
+    defaults: { _controller: AdminUserBundle:Group:groupList }
+
+admin_user_groupadd:
+    pattern: /groupadd
+    defaults: { _controller: AdminUserBundle:Group:groupAdd }
+    options:
+        expose: true
+
+admin_user_groupdel:
+    pattern: /groupdel/{id}
+    defaults: { _controller: AdminUserBundle:Group:groupDel }
+    options:
+        expose: true
+
+admin_user_groupedit:
+    pattern: /groupedit/{id}
+    defaults: { _controller: AdminUserBundle:Group:groupEdit }
+    options:
+        expose: true
+
+admin_user_user:
+    pattern: /user
+    defaults: { _controller: AdminUserBundle:User:userList }
+
+admin_user_useradd:
+    pattern: /useradd
+    defaults: { _controller: AdminUserBundle:User:userAdd }
+    options:
+        expose: true
+
+admin_user_userdel:
+    pattern: /userdel/{id}
+    defaults: { _controller: AdminUserBundle:User:userDel }
+    options:
+        expose: true
+
+admin_user_useredit:
+    pattern: /useredit/{id}
+    defaults: { _controller: AdminUserBundle:User:userEdit }
+    options:
+        expose: true

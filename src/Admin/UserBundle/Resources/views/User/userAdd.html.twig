@@ -1,0 +1,138 @@
+{% extends 'AdminGlobalBundle::layout.html.twig' %}
+{% form_theme form with 'AdminUserBundle:Form:fields.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets 
+        '@AdminGlobalBundle/Resources/public/plugins/forms/select/select2.css'
+        '@AdminGlobalBundle/Resources/public/plugins/forms/ibutton/jquery.ibutton.css'
+        filter='css_url_rewrite' %}
+        <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h4>添加用户</h4>
+</div>
+<form class="form-horizontal seperator" action="" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <div class="form-row row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <div class="form-actions">
+                    <div class="span3"></div>
+                    <div class="span4 controls">
+                        <button type="submit" class="btn btn-info marginR10">确认添加</button>
+                        <button class="btn btn-danger">取消返回</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{#<form class="form-horizontal seperator">
+    <div class="form-row row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <label class="form-label span3" for="username">用户名:</label>
+                <input class="span4" id="username" name="username" type="text" placeholder="请输入用户名" />                          
+                <span class="hint">
+                    <a href="#" class="red">Request new ?</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-row row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <label class="form-label span3" for="userimg">用户头像:</label>
+                <img src="http://placehold.it/60x60" alt="" class="image marginR10"/>                            
+                <input type="file" name="fileinput" id="file"/>                            
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <label class="form-label span3" for="realname">真实姓名:</label>
+                <input class="span4" id="realname" name="realname" type="text" placeholder="请输入真实姓名" />                            
+            </div>
+        </div>
+    </div>
+    <div class="form-row row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <label class="form-label span3" for="email">Email地址:</label>
+                <input class="span4" id="email" name="email" type="text" placeholder="请输入邮箱地址" />                            
+            </div>
+        </div>
+    </div>
+    <div class="form-row row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <label class="form-label span3" for="normal">用户密码:</label>
+                <div class="span4 controls">
+                    <input class="span12" id="password" name="password" type="password" placeholder="请输入密码" />                            
+                    <input class="span12" id="passwordConfirm" name="confirm_password" type="password" placeholder="再次输入密码" />                            
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <label class="form-label span3" for="email">用户性别:</label>
+                <div class="left marginT5 marginR10">
+                    <input type="radio" name="gender" id="optionsRadios1" value="option1" checked="checked" />男
+                </div>
+                <div class="left marginT5 marginR10">
+                    <input type="radio" name="gender" id="optionsRadios2" value="option2" />女
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <label class="form-label span3" for="description">用户简介:</label>
+                <textarea class="span4 elastic" id="description" name='description' rows="3" cols="5"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="form-row row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <label class="form-label span3" for="email">是否激活:</label>
+                <div class="span4 controls">
+                    <div class="left marginR10">
+                        <input type="checkbox" id="inlineCheckbox4" checked="checked" class="ibuttonCheck nostyle" />                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <label class="form-label span3" for="email">所属用户组:</label>
+                <input id="tags" type="text" value="orange" class="text"></div>
+        </div>
+    </div>
+
+    <div class="form-row row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <div class="form-actions">
+                    <div class="span3"></div>
+                    <div class="span4 controls">
+                        <button type="submit" class="btn btn-info marginR10">确认添加</button>
+                        <button class="btn btn-danger">取消返回</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>#}
+{% endblock %}

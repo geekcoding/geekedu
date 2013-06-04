@@ -1,0 +1,61 @@
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+admin_login:
+    pattern:  /admin/login
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+admin_check:
+    pattern:  /admin/login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+admin_logout:
+    pattern:  /admin/logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+
+site_user:
+    resource: "@SiteUserBundle/Resources/config/routing.yml"
+    prefix:   /user
+
+site_forum:
+    resource: "@SiteForumBundle/Resources/config/routing.yml"
+    prefix:   /forum
+
+site_library:
+    resource: "@SiteLibraryBundle/Resources/config/routing.yml"
+    prefix:   /library
+
+site_common:
+    resource: "@SiteCommonBundle/Resources/config/routing.yml"
+    prefix:   /
+
+site_lesson:
+    resource: "@SiteLessonBundle/Resources/config/routing.yml"
+    prefix:   /lesson
+
+admin_global:
+    resource: "@AdminGlobalBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+admin_user:
+    resource: "@AdminUserBundle/Resources/config/routing.yml"
+    prefix:   /admin/user

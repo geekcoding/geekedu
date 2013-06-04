@@ -1,0 +1,41 @@
+<!-- 顶部导航栏开始 -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-box">
+        <div class="container">
+          <a class="brand menupush" href="{{path('site_common_homepage')}}">{{ common.title }}</a>
+          <form class="navbar-search pull-left">
+            <input type="text" class="search-query" placeholder="Search">
+          </form>
+          <div class="pull-right">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <ul class="nav">
+              <li class="divider-vertical"></li>
+              <li class="dropdown">
+                {% trans_default_domain 'FOSUserBundle' %}
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  你好!&nbsp;&nbsp;{{ app.user.username }} <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li><a href="#"><i class="icon-user"></i>用户首页</a></li>
+                  <li><a href="#"><i class="icon-envelope"></i>消息通知</a></li>
+                  <li><a href="#"><i class="icon-star"></i>课程收藏</a></li>
+                  <li><a href="#"><i class="icon-shopping-cart"></i>订单管理</a></li>
+                  <li><a href="#"><i class="icon-cog"></i>个人设置</a></li>
+                  <li>{% if is_granted("ROLE_ADMIN") %}<a href="/admin">管理网站</a>{% endif %}</li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            {% else %}
+              <a class="m-btn sm menupush" href="{{ path('fos_user_security_login') }}">登录 && 注册</a>
+              <!-- <a class="m-btn sm green rnd" href="{{ path('fos_user_registration_register') }}">注册</a> -->
+              <a class="m-btn blue rnd" href="{{ path('fos_user_security_login') }}">定制课程表</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 顶部导航栏结束 -->
