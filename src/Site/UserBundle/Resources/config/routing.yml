@@ -1,3 +1,0 @@
-site_user_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: SiteUserBundle:Default:index }

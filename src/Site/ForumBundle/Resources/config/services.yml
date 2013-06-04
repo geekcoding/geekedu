@@ -1,7 +1,0 @@
-parameters:
-#    site_forum.example.class: Site\ForumBundle\Example
-
-services:
-#    site_forum.example:
-#        class: %site_forum.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,3 +1,0 @@
-site_library_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: SiteLibraryBundle:Default:index }

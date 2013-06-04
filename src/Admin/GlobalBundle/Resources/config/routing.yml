@@ -1,3 +1,0 @@
-admin_homepage:
-    pattern:  /
-    defaults: { _controller: AdminGlobalBundle:Default:index }
