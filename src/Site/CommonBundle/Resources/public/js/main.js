@@ -38,31 +38,30 @@ $(function() {
             }
         }
     });
-    $(document).on('click',".security",function(evt){
-        evt.preventDefault();
-        $(this).gkSlide({
-            env: 'click',
-            container:$("#main"),
-            slide:'#userslide',
-            move:'up',
-            init:function(){$mediaplayer.call();},
-            loader: {
-                top: 'slide',
-                icon: '/bundles/sitecommon/img/ajaxloader2.gif'
-            }
-        });
+    $.gkSpeed({
+        selector: '.menupush',
+        container: $("#main"),
+        move: 'left',
+        slide: "#slide",
+        callback: function() {
+            $mediaplayer.call();
+        },
+        loader: {
+            icon: '/bundles/sitecommon/img/ajaxloader2.gif'
+        }
     });
-    $(document).on('click','.menupush',function(evt){
-        evt.preventDefault();
-        $(this).gkSlide({
-            env: 'click',
-            container:$("#main"),
-            move: 'left',
-            slide:"#slide",
-            init:function(){$mediaplayer.call();},
-            loader: {
-                icon: '/bundles/sitecommon/img/ajaxloader2.gif'
-            }
-        });
+    $.gkSpeed({
+        selector: '.security',
+        container: $("#main"),
+        slide: '#userslide',
+        move: 'up',
+        callback: function() {
+            $mediaplayer.call();
+        },
+        loader: {
+            top: 'slide',
+            icon: '/bundles/sitecommon/img/ajaxloader2.gif'
+        }
     });
+    $.gkHistoryInit();
 });

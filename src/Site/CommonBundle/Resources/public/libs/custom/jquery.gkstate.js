@@ -1,28 +1,33 @@
 var state = 1;
-var urlstate = [];
+var urlstate;
 var backto = [];
 var current = 1;
-var backoption = [];
+var backoptions = [];
 var inithis = false;
+var starthis = false;
+var hisstart = true;
+var options_array = [];
+var id = 1;
 (function($) {
 	$.fn.extend({
 		gkHistory: function(options) {
-            default_options = {
-                url: '',
-                title: '',
-                state: state
+			default_options = {
+				url: '',
+				title: '',
+				state: state
 			};
 			var options = $.extend(default_options, options);
 			window.History.pushState({
 				state: options.state
 			}, options.title, options.url);
 		},
-		gkBackup: function(options) {
+		gkBackup: function(boptions,step) {
 			var _this = this;
-			backto[state-1] = function(newoptions) {
-				options.href = window.location.href;
-				var newoptions = $.extend(options, newoptions);
-				switch (options.move) {
+			if(!arguments[1]) step = state - 1;
+			backto[step] = function(newoptions) {
+				boptions.href = window.location.href;
+				var newoptions = $.extend(boptions, newoptions);
+				switch (boptions.move) {
 					case 'left':
 						newoptions.move = 'right';
 						break;
@@ -39,20 +44,18 @@ var inithis = false;
 						newoptions.move = 'right';
 						break;
 				}
-				newoptions.env = null;
+				newoptions.isenv = false;
 				_this.gkSlide(newoptions);
 			}
-			backoption[state-1] = options;
 		},
-		gkInit:function(state){
+		gkInit: function(state) {
 			var _this = this;
 			options = {
-                url: window.location.href,
-                title: $('title').text(),
-                state:arguments[1] ? arguments[1] : state
+				url: window.location.href,
+				title: $('title').text(),
+				state: arguments[1] ? arguments[1] : state
 			};
 			_this.gkHistory(options);
-			inithistory = true;
 		},
 		gkSlide: function(options) {
 			var _this = this;
@@ -61,8 +64,8 @@ var inithis = false;
 				move: 'right',
 				container: $('body'),
 				slide: '#main',
-				env: null,
-				speed: 200,
+				speed: 300,
+				before:function(){},
 				loader: {
 					width: '60px',
 					height: '60px',
@@ -71,9 +74,9 @@ var inithis = false;
 					top: 'window',
 					icon: '../img/ajaxloader.gif'
 				},
-				history: true,
+				history: inithis,
 				push: {},
-				init: function() {}
+				callback: function() {}
 			};
 			options.loader = $.extend(default_options.loader, options.loader);
 			var options = $.extend(default_options, options);
@@ -83,18 +86,18 @@ var inithis = false;
 			var ajax_loader = this.gkGetLoader(options.loader);
 			//创建一个新的滑块并加入ajaxloader对象用于正在加载时所显示
 			var nslide = slide.clone(true).html('').prepend(ajax_loader).hide();
-            //获取ajax_loader顶部距离
-            if (options.loader.top == 'slide') {
-                ajax_loader.css('margin-top', (parseInt(slide.css('height')) - parseInt(ajax_loader.css('height'))) / 2 + 'px');
-                ajax_loader.css('margin-bottom', (parseInt(slide.css('height')) - parseInt(ajax_loader.css('height'))) / 2 + 'px');
-            } else if(options.loader.top == 'window'){
-            	wheight = $(window).height();
-            	ajax_loader.css('margin-top', (wheight / 2-parseInt(ajax_loader.css('height'))) + 'px');
-            	ajax_loader.css('margin-bottom', (wheight / 2-parseInt(ajax_loader.css('height'))) + 'px');
-            }else {
-                ajax_loader.css('margin-top', options.loader.top);
-                ajax_loader.css('margin-bottom', options.loader.top);
-            }
+			//获取ajax_loader顶部距离
+			if (options.loader.top == 'slide') {
+				ajax_loader.css('margin-top', (parseInt(slide.css('height')) - parseInt(ajax_loader.css('height'))) / 2 + 'px');
+				ajax_loader.css('margin-bottom', (parseInt(slide.css('height')) - parseInt(ajax_loader.css('height'))) / 2 + 'px');
+			} else if (options.loader.top == 'window') {
+				wheight = $(window).height();
+				ajax_loader.css('margin-top', (wheight / 2 - parseInt(ajax_loader.css('height'))) + 'px');
+				ajax_loader.css('margin-bottom', (wheight / 2 - parseInt(ajax_loader.css('height'))) + 'px');
+			} else {
+				ajax_loader.css('margin-top', options.loader.top);
+				ajax_loader.css('margin-bottom', options.loader.top);
+			}
 			//改变顶级滑块为容器,设置其为相对布局样式,防止滑动时溢出
 			slide.parent().css({
 				'overflow': 'hidden',
@@ -143,28 +146,30 @@ var inithis = false;
 				var newslide = slide;
 				var before = function() {
 					nslide.show();
-					if (options.history == true) {
-						if (options.env != null) {
-							state = state+1;
-							options.push = {};
-							options.push.href = options.href;
-							options.push.state = state;
-							urlstate[state] = options.push.url = options.href;
-							options.push.title = $("title").text();
-							_this.gkHistory(options.push);
-						}
+					if (options.history == true && options.isenv == true) {
+						state = state + 1;
+						$.session.set('state', state);
+						options.push = {};
+						options.push.href = options.href;
+						options.push.state = state;
+						current = state;
+						options.push.url = options.href;
+						options.push.title = $("title").text();
+						_this.gkHistory(options.push);
 					}
 					slide.remove();
+					options.before.call();
 				};
 				var success = function(data) {
 					container.html('').append($(data));
-					if(options.env != null){
-						newoptions = options;
-						_this.gkBackup(newoptions);
+					if (options.history == true && options.isenv == true) {
+						backoptions.push(options.id);
+						$(document).sessionStorage('backoptions',backoptions);
+						_this.gkBackup(options);
 					}
 				};
-				var init = function() {
-					options.init.call();
+				var callback = function() {
+					options.callback.call();
 				}
 				_this.gkGetPage({
 					before: function() {
@@ -173,7 +178,7 @@ var inithis = false;
 					url: options.href,
 					success: function(data, textStatus) {
 						success.call(this, data);
-						init.call();
+						callback.call();
 					}
 				});
 			});
@@ -198,7 +203,7 @@ var inithis = false;
 					options.before.call();
 				},
 				data: {
-					'slide':true
+					'slide': true
 				},
 				type: 'post',
 				url: options.url,
@@ -235,35 +240,66 @@ var inithis = false;
 		}
 	});
 	$(window).bind("statechange", function(e) {
-		var st = History.getState();
-		if (e && st) {
-			if(st.data.state == 0 && inithis == true){
-				new Messi('<center style="color:#733">当前已是最后一页,无法再退了!</center>', {
-					modal: true,
-					autoclose:1000,
-					center: false,
-					viewport:{
-						top:'150px',
-						left:'300px'
-					},
-					callback:function(){}
-				});
-				History.forward();
-			}
-			if (current > st.data.state && backto[st.data.state] != undefined) {
-				backto[st.data.state].call();
-			} else if(current < st.data.state && backto[st.data.state - 1] != undefined){
-				backto[st.data.state - 1].call(this,{href:st.url});
-			}else if (backto.length == st.data.state) {
-				if(backto[st.data.state - 1] != undefined){
-					backto[st.data.state - 1].call(this, {href:st.url});
+		if (inithis == true) {
+			var st = History.getState();
+			if (e && st) {
+				if (st.data.state == 2 && current == 1 && hisstart == false) {
+					backto[1].call();
+					current = 2;
+				} else if (st.data.state == undefined && current == 2) {
+					backto[1].call();
+					current = 1;
+				} else if (st.data.state == 2 && current == 2 && hisstart == true) {
+					hisstart = false;
+				} else if (current > st.data.state && backto[st.data.state] != undefined && hisstart == false) {
+					backto[st.data.state].call();
+					current = st.data.state;
+				} else if (current < st.data.state && backto[st.data.state - 1] != undefined && hisstart == false) {
+					backto[st.data.state - 1].call(this, {
+						href: st.url
+					});
+					current = st.data.state;
+				} else if (backto.length == st.data.state && hisstart == false && backto[st.data.state - 1]	 != undefined) {
+					backto[st.data.state - 1].call(this, {
+						href: st.url
+					});
 				}
+				$.session.set('current', current);
 			}
-			current = st.data.state;
+			return false;
 		}
-		return false;
 	});
-	$('document').gkInit(0);
-	$('document').gkInit();
-	inithis = true;
+	$.extend({
+		gkHistoryInit: function(options) {
+			var _this = this;
+			inithis = true;
+			if ($.session.get('current') != undefined && $.session.get('state') != undefined) {
+				current = parseInt($.session.get('current'));
+				state = parseInt($.session.get('state'));
+				backoptions = $(document).sessionStorage('backoptions');
+				hisstart = false;
+				for (var i = 1; i < backoptions.length+1; i++) {
+					var boptions = options_array[backoptions[i-1]];
+					$(document).gkBackup(boptions,i);
+				};
+			}
+		},
+		gkSpeed: function(options) {
+			default_options = {
+				selector: 'a',
+				event: 'click',
+				global: false
+			};
+			var options = $.extend(default_options, options);
+			options.id = id;
+			options_array[id] = options;
+			id++;
+			$(document).on(options.event, options.selector, function(evt) {
+				evt.preventDefault();
+				options.href = $(this).attr('href');
+				options.isenv = true;
+				$(this).gkSlide(options);
+			});
+		},
+	});
 })(jQuery);
