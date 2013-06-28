@@ -39,7 +39,7 @@ assetic:
         #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
 
 doctrine_mongodb:
-    # default_database: %database_name%
+    default_database: %database_name%
     connections:
         default:
             server: mongodb://%database_host%:%database_port%
@@ -57,6 +57,8 @@ swiftmailer:
     host:      %mailer_host%
     username:  %mailer_user%
     password:  %mailer_password%
+    encryption: %mailer_encryption%
+    port: %mailer_port%
     spool:     { type: memory }
 
 fos_user:
@@ -65,9 +67,21 @@ fos_user:
     user_class:     Site\UserBundle\Document\User
     group:
         group_class: Site\UserBundle\Document\Group
+    # service:
+    #     mailer: fos_user.mailer.twig_swift
+    # resetting:
+    #     email:
+    #         template: SiteUserBundle:User:resetting.email.twig
     registration:
         form:
             type: site_user_registration
+            validation_groups:  [Registration, SiteRegistration]
+            handler: site_registration.form.handler
+        confirmation:
+            enabled:    true
+            from_email:
+                address:        lichnow@geekcoding.net
+                sender_name:    极客编码用户验证
 
 fkr_css_url_rewrite:
     rewrite_only_if_file_exists: true

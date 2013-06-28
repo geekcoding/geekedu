@@ -4,4 +4,4 @@ parameters:
 services:
    model:
        class: Hmvc\ModelLoad
-       arguments: [ @doctrine_mongodb.odm.default_document_manager ]
+       arguments: [ '@doctrine_mongodb.odm.default_document_manager','@service_container' ]

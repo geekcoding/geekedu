@@ -25,6 +25,12 @@ class Lesson extends \Hmvc\Model
          $lessons = $this->rp->findAllByOrder();
          return $lessons;
     }
+    public function getListByType($index)
+    {
+        $type = $this->container->get('model')->load('Site:LessonBundle:Type')->getOneByRname($index);
+    	$lessons = $type->getLessons();
+    	return $lessons;
+    }
 
 }
 

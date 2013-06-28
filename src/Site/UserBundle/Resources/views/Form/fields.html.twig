@@ -1,18 +1,23 @@
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            {% for error in errors %}
+                {% if loop.index == 1 %}
+                    {{ error.message }}!
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}
 {% block form_row %}
 {% spaceless %}
-<div class="control-group">
-	<div class="row-fluid">
-		<div class="span3">
-			{{ form_label(form, label|default(null),{ 'label_attr': {'class': 'control-label'} }) }}
-		</div>
-		<div class="span5">
-			<div class="offset1">{{ form_widget(form) }}</div>
-		</div>
-		<div class="span4">
-			{% if form_errors(form) %}
-			   <div class="alert alert-error">{{ form_errors(form) }}</div>
-			{% endif %}
-		</div>
+<div class="control-group {% if form.vars.errors|length %}error{% endif %}">
+	{{ form_label(form, label|default(null),{ 'label_attr': {'class': 'control-label'} }) }}
+	<div class="controls">
+	    {{ form_widget(form) }}
+	    {% if form.vars.errors|length  %}
+	        <span class="help-inline">{{ form_errors(form) }}</span>
+	    {% endif %}
 	</div>
 </div>
 {% endspaceless %}

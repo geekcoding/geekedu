@@ -1,6 +1,20 @@
+parameters:
+    vendor_security.authentication_handler: Site\UserBundle\Handler\AuthenticationHandler
+
 services:
     site_user.registration.form.type:
         class: Site\UserBundle\Form\Type\RegistrationFormType
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: site_user_registration }
+
+    authentication_handler:
+        class:  %vendor_security.authentication_handler%
+        arguments:  ['@router','@service_container']
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }
+
+    site_registration.form.handler:
+        class: Site\UserBundle\Handler\RegistrationFormHandler
+        scope: request
+        arguments: ["@fos_user.registration.form", "@request", "@fos_user.user_manager", "@fos_user.mailer", "@fos_user.util.token_generator"]

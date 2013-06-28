@@ -1,0 +1,13 @@
+<div class="subnav">
+	<ul class="nav nav-pills">
+		{% for type in subtypes %}
+		    {% if loop.index < 6 %}
+		    <li>
+		        <a class="subtype" href="{{ path('site_lesson_category',{'index':type.rname}) }}">
+		            {{ type.name }}
+		        </a>
+		    </li>
+		    {% endif %}
+		{% endfor %}
+	</ul>
+</div>

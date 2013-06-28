@@ -1,0 +1,15 @@
+Site\UserBundle\Document\User:
+    properties:
+        username:
+            - Length:
+                min: 4
+                max: 15
+                minMessage: fos_user.username.short
+                maxMessage: fos_user.username.long
+                groups: [SiteRegistration]
+        plainPassword:
+            - Length:
+                min: 7
+                minMessage: fos_user.password.short
+                groups: [SiteRegistration]
+            - Site\UserBundle\Validator\Constraints\ContainsAlphanumeric: {groups: [SiteRegistration]}

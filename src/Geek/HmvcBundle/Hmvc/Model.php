@@ -15,10 +15,12 @@ namespace Hmvc;
 abstract class Model
 {
     public $dm;
+    public $container;
     protected $rp;
-    public function __construct($dm)
+    public function __construct($dm,$container)
     {
         $this->dm = $dm;
+        $this->container = $container;
         $this->init();
     }
    abstract protected function init();

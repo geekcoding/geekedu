@@ -1,11 +1,11 @@
 <?php
-// src/Acme/UserBundle/Document/User.php
 
 namespace Site\UserBundle\Document;
 
 use FOS\UserBundle\Document\User as BaseUser;
 use FOS\UserBundle\Model\GroupInterface as GroupInterface;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @MongoDB\Document(collection="users",repositoryClass="Site\UserBundle\Repository\UserRepository")
@@ -23,7 +23,7 @@ class User extends BaseUser
     protected $groups;
 
     /**
-     * @MongoDB\String  @MongoDB\UniqueIndex
+     * @MongoDB\String
      */
     protected $realname;
 

@@ -6,27 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class PublicController extends Controller
 {
-    public function sidebarAction()
+    public function getSubTypesAction()
     {
-    	$data['lesson_types'] = $this->getTypes();
-        return $this->render('SiteLessonBundle:Public:sidebar.html.twig',$data);
-    }
-    public function getTypes()
-    {
-        $otypes = $this->get('doctrine_mongodb')
-        ->getManager()
-        ->getRepository('SiteLessonBundle:Type')
-        ->findAllByOrder();
-        $types = array();
-        foreach ($otypes as $key => $value) {
-        	if ($value->getPath() == "0") {
-        		$types[] = $value;
-        	}
-        }
-        foreach ($types as $key => $value) {
-        	$types[$key]->children = $this->getChindrenTypes($otypes,$value);
-        }
-        return $types;
+        $data['subtypes'] = $this->get('model')->load('Site:LessonBundle:Type')->getGradeTypes(1);
+        return $this->render('SiteLessonBundle:Public:subtypes.html.twig',$data);
     }
     public function getChindrenTypes($otypes,$ptype)
     {

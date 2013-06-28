@@ -12,7 +12,7 @@ group:
         deleted: 小组已被删除
 
 # Security
-"Bad credentials": 用户名或密码不正确
+"Bad credentials": 用户名或密码不正确,请重新登录!
 
 security:
     login:
@@ -39,7 +39,7 @@ change_password:
 
 # Registration
 registration:
-    check_email: 系统向%email%发送了一封包含激活链接的邮件，请访问该链接以启用你的帐户。
+    check_email: 系统已经向%email%发送了账户验证的邮件，请访问邮件激活你的帐户!
     confirmed: %username%，恭喜你，你的帐户已启用！
     back: 返回前一页面
     submit: 注册

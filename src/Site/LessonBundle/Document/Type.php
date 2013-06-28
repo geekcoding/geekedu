@@ -29,6 +29,11 @@ class Type
     * @MongoDB\String
     */
     protected $path;
+
+    /**
+    * @MongoDB\String
+    */
+    protected $rname;
     public function __construct()
     {
         $this->lessons = new \Doctrine\Common\Collections\ArrayCollection();
@@ -138,5 +143,27 @@ class Type
     public function getPath()
     {
         return $this->path;
+    }
+
+    /**
+     * Set rname
+     *
+     * @param string $rname
+     * @return self
+     */
+    public function setRname($rname)
+    {
+        $this->rname = $rname;
+        return $this;
+    }
+
+    /**
+     * Get rname
+     *
+     * @return string $rname
+     */
+    public function getRname()
+    {
+        return $this->rname;
     }
 }

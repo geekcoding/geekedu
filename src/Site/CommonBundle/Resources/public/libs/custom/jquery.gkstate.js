@@ -278,10 +278,14 @@ var id = 1;
 				state = parseInt($.session.get('state'));
 				backoptions = $(document).sessionStorage('backoptions');
 				hisstart = false;
-				for (var i = 1; i < backoptions.length+1; i++) {
-					var boptions = options_array[backoptions[i-1]];
-					$(document).gkBackup(boptions,i);
-				};
+				if(backoptions != undefined){
+					for (var i = 1; i < backoptions.length+1; i++) {
+						var boptions = options_array[backoptions[i-1]];
+						$(document).gkBackup(boptions,i);
+					}
+				}else{
+					backoptions = [];
+				}
 			}
 		},
 		gkSpeed: function(options) {

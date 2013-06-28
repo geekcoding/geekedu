@@ -2,7 +2,7 @@
 <div id="slide" class="container">
 <div class="row-fluid block">
 	<div class="span2"></div>
-	<div class="span8">
+	<div class="span8 boxblock">
 		<div id="userslide">
 			<blockquote>
 				<div class="page-header">
@@ -17,7 +17,7 @@
 			{% if error %}
 			<div class="alert alert-error">{{ error|trans }}!</div>
 			{% endif %}
-			<form class="form-horizontal form-box" action="{{ path("fos_user_security_check") }}" method="post">
+			<form id="login_form" class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
 				<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 				<div class="control-group">
 					<label class="control-label" for="username">{{ 'security.login.username'|trans }}</label>
@@ -40,7 +40,7 @@
 					</div>
 				</div>
 				<div class="form-actions">
-					<input class="pull-left btn btn-success" type="submit" id="_submit" name="_submit" value="登录本站" />
+					<input class="pull-left btn btn-success" type="submit" id="login_btn" name="login_btn" value="登录本站" />
 					<div class="pull-right">
 						还没有帐号?
 						<a type="button" class="btn security" href="{{ path('fos_user_registration_register') }}">立即注册</a>
@@ -52,3 +52,8 @@
 	<div class="span2"></div>
 </div>
 </div>
+{% javascripts
+  '@SiteUserBundle/Resources/public/js/login.js'
+%}
+  <script src="{{ asset_url }}"></script>
+{% endjavascripts %}

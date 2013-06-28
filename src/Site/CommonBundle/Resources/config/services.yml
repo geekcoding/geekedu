@@ -1,4 +1,8 @@
 parameters:
-#    site_common.example.class: Site\CommonBundle\Example
+    gk_mailer.class:      Site\CommonBundle\Mailer
+    gk_mailer.transport:  sendmail
 
-# services:
+services:
+    gk_mailer:
+        class:        "%gk_mailer.class%"
+        arguments:    ["%gk_mailer.transport%"]

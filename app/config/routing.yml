@@ -34,7 +34,7 @@ admin_logout:
 
 site_user:
     resource: "@SiteUserBundle/Resources/config/routing.yml"
-    prefix:   /user
+    prefix:   /
 
 site_forum:
     resource: "@SiteForumBundle/Resources/config/routing.yml"

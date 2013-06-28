@@ -1,5 +1,8 @@
 @import "../libs/bootstrap/less/bootstrap.less";
 @import "../libs/bootstrap/less/responsive.less";
+@import "nav.less";
+@import "block.less";
+@import "ajax.less";
 @FontAwesomePath: "/bundles/sitecommon/font";
 @gridColumnWidth1200: 60px;
 @gridGutterWidth1200: 20px;
@@ -12,107 +15,26 @@ body{
 	padding-top: 45px;
 	background-image: url(../img/bg3.png);
 }
-.navbar{
-    .navbar-box{
-		margin-bottom: 0;
-		min-height: @navbarHeight;
-        padding-left:  20px;
-        padding-right: 20px;
-        #gradient > .vertical(rgba(255,255,255,0.2), rgba(245,245,245,0.2));
-        #translucent > .border(@color: @black, @alpha: 0.8);
-        .border-radius(@baseBorderRadius);
-        .box-shadow(0 1px 4px rgba(0,0,0,.065));
-        .clearfix();
-    }
-}
 footer{
 	nav{
 	    font-size:@baseFontSize;
 	}
 }
-.nav-pills{
-	a{
-	    color: #222;
+header{
+	.nav{
+		margin-bottom: 0;
 	}
-}
-.block{
-	margin: 10px auto 0 auto;
-	padding: 0;
-	color:@grayLight;
-	.alert-advertise{
-        #translucent > .background(@color: #FFFFEE, @alpha: 0.6);
-        #translucent > .border(@color: #FCE, @alpha: 0.6);
-        color: #667;
+	.nav-pills{
+		#translucent > .background(@color: #fff, @alpha: 0.8);
+		border:1px solid #dcdcdc;
+		padding: 1px 2px 1px 0;
+		a{
+		    color: #222;
+		    &:hover,&:focus{
+			    .border-radius(@radius: 0);
+		    }
+		}
     }
-	.box{
-		.hero-unit;
-		margin-bottom: 0;
-		border-style: solid;
-	    border-width: 1px;
-		#translucent > .background(@color: #fff,@alpha:0.5);
-		#translucent > .border(@color: #eee, @alpha: 0.8);
-	}
-	.nav,.alert{
-		margin-bottom: 0;
-	}
-	h3{
-		color:#444;
-	}
-	.thumbnails{
-		margin-bottom: 0;
-		[class*="span"]{
-			margin-bottom: 0;
-		}
-		.thumbnail{
-		    #translucent > .background(@color: #eee,@alpha:0.5);
-		    color:@grayDark;
-		    text-align: center;
-                    .lightbox{
-                       height:70px;
-                       width:70px;
-                       display:block;
-                       background:url('../img/videoplay.png') no-repeat;
-					   margin-top:-120px;
-					   margin-left:70px;
-					   position:absolute;
-					   &:hover{
-					       background-position: 0 -70px;
-					   }
-                    }
-		}
-		p{
-		    margin-top: 10px;
-		}
-	}
-	blockquote{
-		margin: 0 auto;
-		.page-header{
-			padding-bottom: 5px;
-			margin: 10px auto;
-			.row-fluid{
-				height: 20px;
-			}
-	    }
-		h4{
-			display: block;
-			margin: 0;
-			float: left;
-			line-height: 15px;
-			height: 20px;
-		}
-		small{
-			font-size: @baseFontSize;
-		}
-	}
-}
-.ajaxloader{
-	width: @gridColumnWidth1200;
-	height: @gridColumnWidth1200;
-	margin: 0 auto;
-	background: url('../img/ajaxloader.png') no-repeat center;
-	background-size: cover;
-	display: none;
-	margin-top: 50px;
 }
 .pushslide{
 	width:@gridColumnWidth1200*8+@gridGutterWidth1200*7;

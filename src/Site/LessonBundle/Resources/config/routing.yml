@@ -1,3 +1,8 @@
 site_lesson_homepage:
     pattern:  /
     defaults: { _controller: SiteLessonBundle:Default:index }
+site_lesson_category:
+    pattern:  /{index}
+    defaults: { _controller: SiteLessonBundle:Lesson:index,index:'all','content':false}
+    options:
+        expose: true
