@@ -12,10 +12,22 @@ use Doctrine\ODM\MongoDB\DocumentRepository;
  */
 class LessonRepository extends DocumentRepository
 {
-	public function findAllByOrder()
+	public function findAllByOrder($skip,$limit)
 	{
 		return $this->createQueryBuilder()
 		       ->sort('order', 'ASC')
+		       ->skip($skip)
+		       ->limit($limit)
+               ->getQuery()
+               ->execute();
+	}
+	public function findLimitByType($type,$skip,$limit)
+	{
+		return $this->createQueryBuilder()
+		       ->sort('order', 'ASC')
+		       ->field('type.$id')->equals($type->getId())
+		       ->skip($skip)
+		       ->limit($limit)
                ->getQuery()
                ->execute();
 	}

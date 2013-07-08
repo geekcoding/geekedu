@@ -42,6 +42,11 @@ class Lesson
     protected $uptime;
 
     /**
+     * @MongoDB\String
+     */
+    protected $description;
+
+    /**
     * @MongoDB\Int
     */
     protected $order;
@@ -242,5 +247,27 @@ class Lesson
     public function getOrder()
     {
         return $this->order;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string $description
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

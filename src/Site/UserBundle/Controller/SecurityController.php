@@ -4,6 +4,7 @@ namespace Site\UserBundle\Controller;
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Security\Core\SecurityContext;
 use FOS\UserBundle\Controller\SecurityController  as BaseController;
 
@@ -48,6 +49,9 @@ class SecurityController extends BaseController
             $template = 'AdminUserBundle:Security:login.html.twig';
         } else if($this->container->get('request')->request->get('slide') == true){
             $template = 'SiteUserBundle:Security:login_content.html.twig';
+            $html = $this->container->get('templating')->render($template, $data);
+            $response = new JsonResponse(array('html' => $html));
+            return $response;
         }else {
             $template = 'SiteUserBundle:Security:login.html.twig';
         }

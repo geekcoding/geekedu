@@ -1,8 +1,13 @@
-site_lesson_homepage:
-    pattern:  /
-    defaults: { _controller: SiteLessonBundle:Default:index }
 site_lesson_category:
-    pattern:  /{index}
-    defaults: { _controller: SiteLessonBundle:Lesson:index,index:'all','content':false}
+    pattern:  /{index}/{page}
+    defaults: { _controller: SiteLessonBundle:Default:index,index:'all',page:1}
+    requirements:
+        page:  \d+  
+    options:
+        expose: true
+
+site_lesson_pagination:
+    pattern:  /pagination/{page_count}/{page}/{lesson_route}/{index}
+    defaults: { _controller: SiteLessonBundle:Default:pagination,page:1}
     options:
         expose: true

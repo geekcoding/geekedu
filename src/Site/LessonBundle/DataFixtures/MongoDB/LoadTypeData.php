@@ -63,10 +63,10 @@ class LoadTypeData extends AbstractFixture implements OrderedFixtureInterface
                 'rname' => 'python'
             ),
             array(
-                'name' => 'Nodejs课程',
+                'name' => 'Javascript课程',
                 'order' => 5,
                 'path' => '0-1-5',
-                'rname' => 'nodejs'
+                'rname' => 'javascript'
             ),
             array(
                 'name' => 'IOS编程课程',

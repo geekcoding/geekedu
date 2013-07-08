@@ -10,19 +10,12 @@
         '@SiteCommonBundle/Resources/public/libs/fancybox/source/jquery.fancybox.css'
         '@SiteCommonBundle/Resources/public/libs/fancybox/source/helpers/jquery.fancybox-buttons.css'
         '@SiteCommonBundle/Resources/public/libs/fancybox/source/helpers/jquery.fancybox-thumbs.css'
-        '@SiteCommonBundle/Resources/public/libs/metro/css/m-styles.min.css'
         '@SiteCommonBundle/Resources/public/libs/jcontent/css/jcontent.css'
-        '@SiteCommonBundle/Resources/public/css/*.css'
+        '@SiteCommonBundle/Resources/public/libs/buttons/css/buttons.css'
+        '@SiteCommonBundle/Resources/public/css/main.css'
       %}
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
       {% endstylesheets %}
-      <!--[if IE 7]>
-        {% stylesheets filter='css_url_rewrite'
-          '@SiteCommonBundle/Resources/public/css/font-awesome-ie7.css'
-        %}
-          <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
-        {% endstylesheets %}
-      <![endif]-->
     {% endblock %}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
@@ -57,4 +50,4 @@
     <!-- 全局布局层 -->
     <div class="wrap">
     <!-- 加载顶部导航 -->
-      {% include 'SiteCommonBundle:Public:topnav.html.twig' %}
+      {#{% include 'SiteCommonBundle:Public:topnav.html.twig' %}#}

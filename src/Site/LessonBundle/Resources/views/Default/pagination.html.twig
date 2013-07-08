@@ -1,0 +1,25 @@
+  <ul>
+    <li><a class="pagein" href="{{ path(lesson_route,{'index': index, 'page': 1}) }}">首页</a></li>
+    <li {% if page <= 1 %} class="disabled" {% endif %}>
+        {% if page <= 1 %}
+            {% set prevpage = "javascript:void(0)" %}
+        {% else %}
+            {% set prevpage = path(lesson_route,{'index': index, 'page': page-1}) %}
+        {% endif %}
+        <a class="pagein" href="{{ prevpage }}">&laquo;</a>
+    </li>
+    {% for i in 1..page_count %}
+        <li {% if i == page %}class="active"{% endif %} >
+            <a class="pagein" href="{{ path(lesson_route,{'index': index, 'page': i}) }}">{{ loop.index }}</a>
+        </li>
+    {% endfor %}
+    <li {% if page >= page_count %} class="disabled" {% endif %}>
+        {% if page >= page_count %}
+            {% set nextpage = "javascript:void(0)" %}
+        {% else %}
+            {% set nextpage = path(lesson_route,{'index': index, 'page': page+1}) %}
+        {% endif %}
+        <a class="pagein" href="{{ nextpage }}">&raquo;</a>
+    </li>
+    <li><a class="pagein" href="{{ path(lesson_route,{'index': index, 'page': page_count}) }}">尾页</a></li>
+  </ul>

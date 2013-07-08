@@ -6,6 +6,7 @@ use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\Event\UserEvent;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\Request;
@@ -49,10 +50,12 @@ class RegistrationController extends BaseController
             return $response;
         }
         if($this->container->get('request')->request->get('slide') == true){
-            return $this->container->get('templating')
-            ->renderResponse('SiteUserBundle:Registration:register_content.html.twig', array(
+            $html = $this->container->get('templating')
+            ->render('SiteUserBundle:Registration:register_content.html.twig', array(
                 'form' => $form->createView(),
             ));
+            $response = new JsonResponse(array('html' => $html));
+            return $response;
         }else{
             return $this->container->get('templating')->renderResponse('SiteUserBundle:Registration:register.html.twig', array(
                 'form' => $form->createView(),
@@ -96,9 +99,11 @@ class RegistrationController extends BaseController
         }
 
         if($this->container->get('request')->get('slide') == true){
-            return $this->container->get('templating')->renderResponse('SiteUserBundle:Registration:checkEmail_content.html.twig', array(
+            $html = $this->container->get('templating')->render('SiteUserBundle:Registration:checkEmail_content.html.twig', array(
                 'user' => $user,
             ));
+            $response = new JsonResponse(array('html' => $html));
+            return $response;
         }else{
             return $this->container->get('templating')->renderResponse('SiteUserBundle:Registration:checkEmail.html.twig', array(
                 'user' => $user,
@@ -113,11 +118,13 @@ class RegistrationController extends BaseController
             throw new AccessDeniedException('This user does not have access to this section.');
         }
         if($this->container->get('request')->get('slide') == true){
-            return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:confirmed_content.html.'.$this->getEngine(), array(
+            $html = $this->container->get('templating')->render('FOSUserBundle:Registration:confirmed_content.html.twig', array(
                 'user' => $user,
             )); 
+            $response = new JsonResponse(array('html' => $html));
+            return $response;
         }
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:confirmed.html.'.$this->getEngine(), array(
+        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:confirmed.html.twig', array(
             'user' => $user,
         ));
     }

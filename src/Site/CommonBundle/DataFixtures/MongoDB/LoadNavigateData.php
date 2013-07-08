@@ -16,7 +16,7 @@ class LoadNavigateData extends AbstractFixture implements OrderedFixtureInterfac
         $navs = array(
             array(
                 'name' => '课程',
-                'link' => '/lesson/',
+                'link' => '/lesson',
                 'tip' => '开始学习任何你喜欢的课程,你将成为真正的GEEK',
                 'icon' => 'icon-facetime-video',
                 'order' => 1

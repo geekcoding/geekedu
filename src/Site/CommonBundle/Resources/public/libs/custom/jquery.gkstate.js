@@ -40,6 +40,8 @@ var id = 1;
 					case 'down':
 						newoptions.move = 'up';
 						break;
+				    case 'none':
+				        newoptions.move = 'none';
 					default:
 						newoptions.move = 'right';
 						break;
@@ -61,7 +63,7 @@ var id = 1;
 			var _this = this;
 			default_options = {
 				href: _this.attr('href'),
-				move: 'right',
+				move: 'none',
 				container: $('body'),
 				slide: '#main',
 				speed: 300,
@@ -74,11 +76,13 @@ var id = 1;
 					top: 'window',
 					icon: '../img/ajaxloader.gif'
 				},
+				data: {slide:true},
 				history: inithis,
 				push: {},
 				callback: function() {}
 			};
 			options.loader = $.extend(default_options.loader, options.loader);
+			options.data = $.extend(default_options.data, options.data);
 			var options = $.extend(default_options, options);
 			var container = options.container;
 			var slide = container.find(options.slide);
@@ -105,6 +109,13 @@ var id = 1;
 			});
 			//选择滑动方向,使用jquery对象实现
 			switch (options.move) {
+				case 'none':
+				    slide.css('float', 'left');
+					nslide.insertAfter(slide);
+					var animate = {
+						'display': 'none'
+					};
+					break;
 				case 'left':
 					slide.css('float', 'left');
 					nslide.insertAfter(slide);
@@ -138,7 +149,7 @@ var id = 1;
 					slide.css('float', 'left');
 					nslide.insertAfter(slide);
 					var animate = {
-						'margin-left': '-' + slide.parent().css('width')
+						'display': 'none'
 					};
 					break;
 			}
@@ -146,6 +157,11 @@ var id = 1;
 				var newslide = slide;
 				var before = function() {
 					nslide.show();
+					slide.remove();
+					options.before.call();
+				};
+				var success = function(data) {
+					container.html('').append($(data.html));
 					if (options.history == true && options.isenv == true) {
 						state = state + 1;
 						$.session.set('state', state);
@@ -154,31 +170,26 @@ var id = 1;
 						options.push.state = state;
 						current = state;
 						options.push.url = options.href;
-						options.push.title = $("title").text();
+						options.push.title = (data.title) ? data.title : $("title").text();
 						_this.gkHistory(options.push);
-					}
-					slide.remove();
-					options.before.call();
-				};
-				var success = function(data) {
-					container.html('').append($(data));
-					if (options.history == true && options.isenv == true) {
 						backoptions.push(options.id);
 						$(document).sessionStorage('backoptions',backoptions);
 						_this.gkBackup(options);
 					}
 				};
-				var callback = function() {
-					options.callback.call();
+				var callback = function(data) {
+					options.callback.call(this, data);
 				}
 				_this.gkGetPage({
 					before: function() {
 						before.call();
 					},
+					data:options.data,
+					dataType: 'json',
 					url: options.href,
 					success: function(data, textStatus) {
 						success.call(this, data);
-						callback.call();
+						callback.call(this, data);
 					}
 				});
 			});
@@ -190,6 +201,7 @@ var id = 1;
 					var ajax_loader = this.gkGetLoader();
 					ajax_loader.appendTo(container);
 				},
+				data:{},
 				url: $(this).attr('href'),
 				dataType: 'html',
 				success: function(data, textStatus) {
@@ -202,12 +214,10 @@ var id = 1;
 				beforeSend: function() {
 					options.before.call();
 				},
-				data: {
-					'slide': true
-				},
+				data: options.data,
 				type: 'post',
 				url: options.url,
-				dataType: 'html',
+				dataType: options.dataType,
 				success: function(data, textStatus) {
 					options.success(data, textStatus);
 				}

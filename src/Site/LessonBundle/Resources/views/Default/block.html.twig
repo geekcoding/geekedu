@@ -1,0 +1,42 @@
+<div id="lessonlist" class="pageblock">
+{% set i = 0 %}
+    {% set step = 4 %}
+    {% if lessons|length == 0 %}
+      {% set length = -1 %}
+    {% elseif lessons|length % step  == 0 and lessons|length != 0 %}
+      {% set length = lessons|length / step - 1 %}
+    {% elseif lessons|length % step != 0 and lessons|length > step %}
+      {% set length = lessons|length // step %}
+    {% else %}
+      {% set length = 0 %}
+    {% endif %}
+    {% if length == -1 %}
+      <div>
+          此分类还没有课程!
+      </div>
+    {% else %}
+    {% for nails in 0..length %}
+    <ul class="thumbnails">
+        {% set order = nails * step  %}
+        {% for nail in order..order + step - 1 %}
+            {% set i = 0 %}
+                {% for lesson in lessons %}
+                {% if nail == i %}
+                    <li class="span3">
+                      <div class="thumbnail">
+                        <div class="videoico"></div>
+                        <img class="opimg" src="{{ asset(lesson.image) }}" alt="">
+                        <dl>
+                          <dt>{{ lesson.name }}</dt>
+                          <dd>{{ lesson.description|slice(0, 28) }}...</dd>
+                        </dl>
+                      </div>
+                    </li>
+                {% endif %}
+                {% set i = i+1 %}
+            {% endfor %}
+        {% endfor %}
+    </ul>
+	{% endfor %}
+    {% endif %}
+</div>

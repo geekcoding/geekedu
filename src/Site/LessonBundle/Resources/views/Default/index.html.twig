@@ -1,4 +1,4 @@
-{% extends 'SiteLessonBundle::layout.html.twig' %}
+{% extends 'SiteCommonBundle::layout.html.twig' %}
 {% block lessons %}
-    {{ render(controller('SiteLessonBundle:Lesson:index',{'index':'all','content':true})) }}
+    {% block main %}{% include 'SiteLessonBundle:Default:index_content.html.twig' %}{% endblock %}
 {% endblock %}

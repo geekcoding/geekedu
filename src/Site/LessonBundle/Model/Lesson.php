@@ -20,15 +20,21 @@ class Lesson extends \Hmvc\Model
     {
     	$this->rp = $this->dm->getRepository('SiteLessonBundle:Lesson');
     }
-    public function getList()
+    public function getAll()
     {
-         $lessons = $this->rp->findAllByOrder();
+         $lessons = $this->rp->findAll();
          return $lessons;
     }
-    public function getListByType($index)
+    public function getList($skip = 0,$limit = 20){
+        return $this->rp->findAllByOrder($skip,$limit);
+    }
+    public function getListByType($index,$skip = 0,$limit = 20)
     {
+        if($index == null){
+            return $this->getList($skip,$limit);
+        }
         $type = $this->container->get('model')->load('Site:LessonBundle:Type')->getOneByRname($index);
-    	$lessons = $type->getLessons();
+    	$lessons = $this->rp->findLimitByType($type,$skip,$limit);
     	return $lessons;
     }
 

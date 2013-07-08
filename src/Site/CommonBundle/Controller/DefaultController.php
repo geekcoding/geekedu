@@ -5,6 +5,7 @@ namespace Site\CommonBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 /**
  * 前台公共控制器
@@ -21,10 +22,12 @@ class DefaultController extends Controller
             'common' => $this->get('model')->load('Site:CommonBundle:Common')->getShow(),
             'newvideos' => $this->get('model')->load('Site:LessonBundle:Video')->getPublicList(12),
             'types' => $this->get('model')->load('Site:LessonBundle:Type')->getAllTypes(),
-            'lessons' => $this->get('model')->load('Site:LessonBundle:Lesson')->getList()
+            'lessons' => $this->get('model')->load('Site:LessonBundle:Lesson')->getAll()
      	);
         if($request->request->get('slide') == true){
-            return $this->render('SiteCommonBundle:Default:index_content.html.twig',$data);
+            $html = $this->renderView('SiteCommonBundle:Default:index_content.html.twig',$data);
+            $response = new JsonResponse(array('html' => $html));
+            return $response;
         }
         return $this->render('SiteCommonBundle:Default:index.html.twig',$data);
     }

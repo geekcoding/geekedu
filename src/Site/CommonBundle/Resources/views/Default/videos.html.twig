@@ -28,7 +28,12 @@
                               <img src="{{ asset(common.homeimg) }}" alt="" style="height:170px;">
                             {% endif %}
                             <a class="lightbox newvideo" href="{{ path('site_common_newvideo',{id:video.id}) }}" title=""></a>
-                            <p>{{ video.title }}</p>
+                            <div class="vtitle">
+                              <div class="pull-left">{{ video.title|slice(0, 18) }}</div>
+                              <div class="pull-right">
+                                <img src="{{ asset('/uploads/images/users/gravatar.jpeg') }}">
+                              </div>
+                            </div>
                           </div>
                         </li>
                       {% endif %}

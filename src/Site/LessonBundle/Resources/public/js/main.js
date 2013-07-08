@@ -23,11 +23,27 @@ $(function(){
     processScroll();
     $(document).on('scroll',$win,processScroll);
 	$.gkSpeed({
-        selector: '.subtype',
+        selector: '.subtype, .pagein',
         container: $("#lessonblock"),
-        move: 'left',
+        move: 'none',
+        data: {'content':'home'},
         slide: "#lessonlist",
-        callback: function() {
+        callback: function(data) {
+            $.ajax({
+                beforeSend:function(){
+                    $("#lessonpage").find('ul').html("").append("<li><a href='#'>正在计算页数</a></li>");
+                },
+                url:Routing.generate('site_lesson_pagination',{
+                        page:data.current_page,
+                        page_count:data.page_count,
+                        lesson_route:data.lesson_route,
+                        index:data.lesson_index
+                    }),
+                dataType:'html',
+                success: function(data, textStatus) {
+                    $("#lessonpage").html(data);
+                }
+            });
             $mediaplayer.call();
             processScroll();
             $(document).on('scroll',$win,processScroll);

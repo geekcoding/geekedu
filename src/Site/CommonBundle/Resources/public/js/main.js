@@ -7,19 +7,19 @@ var $mediaplayer = function(){$('audio,video').mediaelementplayer({
 $mediaplayer.call();
 $(function() {
     $('.carousel').carousel({
-        interval: 4000
+        interval: false
     });
-    $(document).on({
-        mouseenter: function() 
-        {
-            $(this).find('.carousel-control').show();
-        },
-        mouseleave: function()
-        {
-            $(this).find('.carousel-control').hide();
-        }
-    },'.carousel');
-    $('.carousel-control').hide();
+    // $(document).on({
+    //     mouseenter: function() 
+    //     {
+    //         $(this).find('.carousel-control').show();
+    //     },
+    //     mouseleave: function()
+    //     {
+    //         $(this).find('.carousel-control').hide();
+    //     }
+    // },'.carousel');
+    // $('.carousel-control').hide();
     $('.newvideo').fancybox({
         padding: 10,
         scrolling: false,
