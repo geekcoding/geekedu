@@ -21,13 +21,13 @@
             </a>
           </li>
           {% endfor %}
-          <form class="navbar-search pull-left">
-            <input type="text" class="search-query" placeholder="搜索课程">
-          </form>
             </ul>
             <ul class="nav pull-right">
+            <form class="navbar-search">
+              <input type="text" class="search-query" placeholder="搜索课程">
+            </form>
+            <li class="divider-vertical"></li>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-              <li class="divider-vertical"></li>
               <li class="dropdown">
                 {% trans_default_domain 'FOSUserBundle' %}
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -47,7 +47,6 @@
                 </ul>
               </li>
             {% else %}
-              <li class="divider-vertical"></li>
               <li><a class="security" href="{{ path('fos_user_security_login') }}">登录 && 注册</a></li>
             {% endif %}
             </ul>

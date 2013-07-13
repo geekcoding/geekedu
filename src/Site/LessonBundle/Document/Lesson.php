@@ -47,6 +47,16 @@ class Lesson
     protected $description;
 
     /**
+     * @MongoDB\String
+     */
+    protected $index;
+
+    /**
+     * @MongoDB\Int
+     */
+    protected $learn;
+
+    /**
     * @MongoDB\Int
     */
     protected $order;
@@ -269,5 +279,49 @@ class Lesson
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set learn
+     *
+     * @param int $learn
+     * @return self
+     */
+    public function setLearn($learn)
+    {
+        $this->learn = $learn;
+        return $this;
+    }
+
+    /**
+     * Get learn
+     *
+     * @return int $learn
+     */
+    public function getLearn()
+    {
+        return $this->learn;
+    }
+
+    /**
+     * Set index
+     *
+     * @param string $index
+     * @return self
+     */
+    public function setIndex($index)
+    {
+        $this->index = $index;
+        return $this;
+    }
+
+    /**
+     * Get index
+     *
+     * @return string $index
+     */
+    public function getIndex()
+    {
+        return $this->index;
     }
 }

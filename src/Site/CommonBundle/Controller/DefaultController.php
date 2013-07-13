@@ -22,7 +22,7 @@ class DefaultController extends Controller
             'common' => $this->get('model')->load('Site:CommonBundle:Common')->getShow(),
             'newvideos' => $this->get('model')->load('Site:LessonBundle:Video')->getPublicList(12),
             'types' => $this->get('model')->load('Site:LessonBundle:Type')->getAllTypes(),
-            'lessons' => $this->get('model')->load('Site:LessonBundle:Lesson')->getAll()
+            'lessons' => $this->get('model')->load('Site:LessonBundle:Lesson')->getAllByLearn()
      	);
         if($request->request->get('slide') == true){
             $html = $this->renderView('SiteCommonBundle:Default:index_content.html.twig',$data);

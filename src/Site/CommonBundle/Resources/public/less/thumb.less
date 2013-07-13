@@ -1,14 +1,16 @@
 .thumbnails{
 		margin-bottom: 0;
 		[class*="span"]{
-			margin-bottom: 0;
+			margin-bottom: 10px;
+			padding-bottom: 0;
 		}
 		.thumbnail{
-		    #translucent > .background(@color: #fff);
+		    #translucent > .background(@color: rgba(255,255,255,.7));
 		    color:@grayDark;
-		    .border-radius(@radius: 0);
 		    text-align: center;
-            .lightbox{
+		    padding: 0;
+		    .border-radius(@radius: 0 0 5px 5px);
+            .play-btn{
                 height:70px;
                 width:70px;
                 display:block;
@@ -20,35 +22,98 @@
 					background-position: 0 -70px;
 			    }
             }
-            .opimg{
-            	width: 100%;
-            	height: 170px;
-            }
-		}
-	    p{
-		    margin-top: 10px;
-	    }
-	}
-	#newvideo{
-	.thumbnail{
-		margin-bottom: 5px;
-		.border-radius(@radius: 0);
-		img{
-			display: block;
-			margin: 0;
-		}
-		#translucent > .background(@color: rgba(255,255,255,.7));
-		.vtitle{
-			padding: 5px 8px;
-			text-align: left;
-			padding: 5px 8px;
-			line-height: 30px;
-			min-height: 30px;
-			img{
-				height: 25px;
-				width: 25px;
+            img{
 				display: block;
+				margin: 0;
+            	width: 96%;
+            	height: 170px;
+            	margin: 5px 2% 0 2%;
 			}
+			.bottom{
+				padding: 0;
+				text-align: left;
+				line-height: 30px;
+				min-height: 30px;
+				.border-radius(@radius: 0 0 5px 5px);
+				.pull-left{
+					margin-left: 2%;
+					min-width: 40%;
+				}
+				.pull-right{
+					margin-right: 2%;
+				}
+				h6{
+					padding: 2px 0 0 0;
+					margin: 0;
+					height: 100%;
+					line-height: 30px;
+				}
+				dl{
+					margin:5px 2% 0 2%;
+					padding:0;
+					dt,dd{
+						padding: 0;
+						margin: 0;
+						i{
+							margin-right: 5px;
+						}
+					}
+				}
+				.tools{
+					height: 30px;
+					padding: 0;
+					margin-top: 5px;
+					padding-top: 7px;
+					.border-radius(@radius: 0 0 5px 5px);
+					#translucent > .background(@color: rgba(240,240,240,.7));
+					span,i,img{
+						float: left;
+					}
+					img{
+						height: 20px;
+						width: 20px;
+						.border-radius(@radius: 3px);
+						display: block;
+					}
+					span{
+						margin-left: 3px;
+						padding-top: 2px;
+						line-height: 30px;
+					}
+					i{
+						margin-left: 6px;
+						line-height: 30px;
+						color:#666;
+					}
+					.small{
+						color:#999;
+						font-family: normal;
+						font-size:8px; 
+					}
+					.strong{
+						font-family: 'Acme',sans-serif;
+						color:#666;
+						font-size: 12px;
+					}
+				}
+				img{
+					height: 25px;
+					width: 25px;
+					margin-top: 2.5px;
+					line-height: 25px;
+					.border-radius(@radius: 25px);
+					display: block;
+				}
+			}
+		}
+	}
+#newvideo{
+	.thumbnails{
+		> [class*="span"]{
+			margin-bottom: 0;
+		}
+		.thumbnail{
+			.border-radius(@radius: 0);
 		}
 	}
 }

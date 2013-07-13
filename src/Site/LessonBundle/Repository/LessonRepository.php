@@ -31,4 +31,12 @@ class LessonRepository extends DocumentRepository
                ->getQuery()
                ->execute();
 	}
+	public function findAllByLearn()
+	{
+		return $this->createQueryBuilder()
+		       ->sort('learn', 'DESC')
+		       ->limit(8)
+               ->getQuery()
+               ->execute();
+	}
 }

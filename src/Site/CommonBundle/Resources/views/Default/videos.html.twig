@@ -27,11 +27,16 @@
                             {% else %}
                               <img src="{{ asset(common.homeimg) }}" alt="" style="height:170px;">
                             {% endif %}
-                            <a class="lightbox newvideo" href="{{ path('site_common_newvideo',{id:video.id}) }}" title=""></a>
-                            <div class="vtitle">
-                              <div class="pull-left">{{ video.title|slice(0, 18) }}</div>
+                            <a class="play-btn" href="{{ path('site_common_newvideo',{id:video.id}) }}"></a>
+                            <div class="bottom">
+                              <div class="pull-left">
+                                <h6>{{ video.title|slice(0, 15) }}</h6>
+                                {% if video.title|length > 15 %}
+                                  ...
+                                {% endif %}
+                              </div>
                               <div class="pull-right">
-                                <img src="{{ asset('/uploads/images/users/gravatar.jpeg') }}">
+                                <img src="{{ asset(video.lesson.image) }}">
                               </div>
                             </div>
                           </div>

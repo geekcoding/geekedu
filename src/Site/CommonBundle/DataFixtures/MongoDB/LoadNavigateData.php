@@ -21,29 +21,29 @@ class LoadNavigateData extends AbstractFixture implements OrderedFixtureInterfac
                 'icon' => 'icon-facetime-video',
                 'order' => 1
             ),
-            array(
-                'name' => '问答',
-                'link' => '#',
-                'tip' => '遇到麻烦?在这里提问,我们会跟你最佳的回答',
-                'icon' => 'icon-question-sign',
-                'order' => 2
-            ),
-            array(
-                'name' => '文档',
-                'link' => '#',
-                'tip' => '太多的英文文档看着头大?这里有我们翻译的最新中文文档',
-                'icon' => 'icon-th-list',
-                'order' => 3,
-                'type' => 'webui',
-                'level' => 'base'
-            ),
-            array(
-                'name' => '社区',
-                'link' => '#',
-                'tip' => '无聊了吧?枯燥了吧?来这里和同学们交流分享任何你的喜欢的吧',
-                'icon' => 'icon-comment',
-                'order' => 4
-            ),
+            // array(
+            //     'name' => '问答',
+            //     'link' => '#',
+            //     'tip' => '遇到麻烦?在这里提问,我们会跟你最佳的回答',
+            //     'icon' => 'icon-question-sign',
+            //     'order' => 2
+            // ),
+            // array(
+            //     'name' => '学堂',
+            //     'link' => '#',
+            //     'tip' => '太多的英文文档看着头大?这里有我们翻译的最新中文文档',
+            //     'icon' => 'icon-th-list',
+            //     'order' => 3,
+            //     'type' => 'webui',
+            //     'level' => 'base'
+            // ),
+            // array(
+            //     'name' => '社区',
+            //     'link' => '#',
+            //     'tip' => '无聊了吧?枯燥了吧?来这里和同学们交流分享任何你的喜欢的吧',
+            //     'icon' => 'icon-comment',
+            //     'order' => 4
+            // ),
             array(
                 'name' => '开源',
                 'link' => 'http://open.geekcoding.net',

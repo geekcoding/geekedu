@@ -9,18 +9,7 @@ $(function() {
     $('.carousel').carousel({
         interval: false
     });
-    // $(document).on({
-    //     mouseenter: function() 
-    //     {
-    //         $(this).find('.carousel-control').show();
-    //     },
-    //     mouseleave: function()
-    //     {
-    //         $(this).find('.carousel-control').hide();
-    //     }
-    // },'.carousel');
-    // $('.carousel-control').hide();
-    $('.newvideo').fancybox({
+    $('.play-btn').fancybox({
         padding: 10,
         scrolling: false,
         closeBtn: true,

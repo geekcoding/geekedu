@@ -21,7 +21,8 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
                 'downpath' => 'uploads/videos/home/homevideo.mov',
                 'imgpath' => 'uploads/videos/home/homeimg.jpg',
                 'public' => true,
-                'ctime' => new \DateTime()
+                'ctime' => new \DateTime(),
+                'lesson' => 'symfony2'
             ),
             array(
                 'title' => 'Rails3安装及环境搭建',
@@ -30,7 +31,8 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
                 'downpath' => 'uploads/videos/home/homevideo.mov',
                 'imgpath' => 'uploads/videos/home/homeimg.jpg',
                 'public' => true,
-                'ctime' => new \DateTime()
+                'ctime' => new \DateTime(),
+                'lesson' => 'rails'
             ),
             array(
                 'title' => 'Silex安装及环境搭建',
@@ -39,7 +41,8 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
                 'downpath' => 'uploads/videos/home/homevideo.mov',
                 'imgpath' => 'uploads/videos/home/homeimg.jpg',
                 'public' => true,
-                'ctime' => new \DateTime()
+                'ctime' => new \DateTime(),
+                'lesson' => 'silex'
             ),
             array(
                 'title' => 'Bootstrap使用初步',
@@ -48,7 +51,8 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
                 'downpath' => 'uploads/videos/home/homevideo.mov',
                 'imgpath' => 'uploads/videos/home/homeimg.jpg',
                 'public' => true,
-                'ctime' => new \DateTime()
+                'ctime' => new \DateTime(),
+                'lesson' => 'bootstrap'
             ),
             array(
                 'title' => 'Nginx+PHP+Rails服务器搭建',
@@ -57,7 +61,8 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
                 'downpath' => 'uploads/videos/home/homevideo.mov',
                 'imgpath' => 'uploads/videos/home/homeimg.jpg',
                 'public' => true,
-                'ctime' => new \DateTime()
+                'ctime' => new \DateTime(),
+                'lesson' => 'linuxserver'
             ),
             array(
                 'title' => 'Symfony2架构详解',
@@ -66,16 +71,18 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
                 'downpath' => 'uploads/videos/home/homevideo.mov',
                 'imgpath' => 'uploads/videos/home/homeimg.jpg',
                 'public' => true,
-                'ctime' => new \DateTime()
+                'ctime' => new \DateTime(),
+                'lesson' => 'symfony2'
             ),
             array(
-                'title' => 'Zend Framework2入手',
+                'title' => 'Laravel4初步',
                 'order' => 0,
                 'playtimes' => 0,
                 'downpath' => 'uploads/videos/home/homevideo.mov',
                 'imgpath' => 'uploads/videos/home/homeimg.jpg',
                 'public' => true,
-                'ctime' => new \DateTime()
+                'ctime' => new \DateTime(),
+                'lesson' => 'laravel'
             ),
             array(
                 'title' => '各种PHP优化程序',
@@ -84,7 +91,8 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
                 'downpath' => 'uploads/videos/home/homevideo.mov',
                 'imgpath' => 'uploads/videos/home/homeimg.jpg',
                 'public' => true,
-                'ctime' => new \DateTime()
+                'ctime' => new \DateTime(),
+                'lesson' => 'php'
             ),
             array(
                 'title' => 'Foundation框架使用初步',
@@ -93,7 +101,8 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
                 'downpath' => 'uploads/videos/home/homevideo.mov',
                 'imgpath' => 'uploads/videos/home/homeimg.jpg',
                 'public' => true,
-                'ctime' => new \DateTime()
+                'ctime' => new \DateTime(),
+                'lesson' => 'foundation'
             ),
             array(
                 'title' => 'Bootstrap中使用LESS设计',
@@ -102,16 +111,18 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
                 'downpath' => 'uploads/videos/home/homevideo.mov',
                 'imgpath' => 'uploads/videos/home/homeimg.jpg',
                 'public' => true,
-                'ctime' => new \DateTime()
+                'ctime' => new \DateTime(),
+                'lesson' => 'bootstrap'
             ),
             array(
-                'title' => 'Syfomy2+Mongodb实现',
+                'title' => 'Symfony2+Mongodb实现',
                 'order' => 0,
                 'playtimes' => 0,
                 'downpath' => 'uploads/videos/home/homevideo.mov',
                 'imgpath' => 'uploads/videos/home/homeimg.jpg',
                 'public' => true,
-                'ctime' => new \DateTime()
+                'ctime' => new \DateTime(),
+                'lesson' => 'symfony2'
             )
         );
         $this->insertData($manager,$videos);
@@ -128,7 +139,7 @@ class LoadVideoData extends AbstractFixture implements OrderedFixtureInterface
             $video->setImgpath($value['imgpath']);
             $video->setCtime($value['ctime']);
             $video->setPublic($value['public']);
-            $video->setLesson($this->getReference('lesson'));
+            $video->setLesson($this->getReference($value['lesson'].'lesson'));
             $manager->persist($video);
             $manager->flush();
         }

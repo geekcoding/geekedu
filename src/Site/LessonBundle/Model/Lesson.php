@@ -25,6 +25,11 @@ class Lesson extends \Hmvc\Model
          $lessons = $this->rp->findAll();
          return $lessons;
     }
+    public function getAllByLearn()
+    {
+        $lessons = $this->rp->findAllByLearn();
+        return $lessons;
+    }
     public function getList($skip = 0,$limit = 20){
         return $this->rp->findAllByOrder($skip,$limit);
     }

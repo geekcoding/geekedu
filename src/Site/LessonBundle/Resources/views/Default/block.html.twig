@@ -24,12 +24,32 @@
                 {% if nail == i %}
                     <li class="span3">
                       <div class="thumbnail">
-                        <div class="videoico"></div>
-                        <img class="opimg" src="{{ asset(lesson.image) }}" alt="">
-                        <dl>
-                          <dt>{{ lesson.name }}</dt>
-                          <dd>{{ lesson.description|slice(0, 28) }}...</dd>
-                        </dl>
+                        <img src="{{ asset(lesson.image) }}" alt="">
+                        <div class="bottom">
+                          <dl>
+                            <dt><i class="icon-facetime-video"></i>{{ lesson.name }}</dt>
+                            <dd>
+                              <small>
+                                {{ lesson.description|slice(0, 28) }}
+                                {% if lesson.description|length > 28 %}
+                                  ...
+                                {% endif %}
+                              </small>
+                            </dd>
+                          </dl>
+                          <div class="tools">
+                            <div class="pull-left">
+                              <img src="{{ asset('/uploads/images/users/gravatar.jpeg') }}">
+                              <span class="strong">lichnow</span>
+                            </div>
+                            <div class="pull-right">
+                              <i class="icon-star-empty"></i>
+                              <span class="small">200</span>
+                              <i class="icon-user"></i>
+                              <span class="small">{{ lesson.learn }}</span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </li>
                 {% endif %}

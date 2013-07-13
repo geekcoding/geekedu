@@ -1,4 +1,3 @@
-            <div class="block">
               <blockquote>
                   <div class="page-header">
                     <div class="row-fluid">
@@ -9,10 +8,46 @@
                     </div>
                   </div>
                 </blockquote>
-                <div>
-                  sdfdsf
-                </div>
-            </div>
+                {% set length = lessons|length // 4 %}
+                {% if lessons|length % 4 != 0 %}{% set length = length + 1 %}{% endif %}
+                {% set linum = 0 %}
+                {% for lesson in 1..length %}
+                <ul class="thumbnails">
+                  {% for lesson in lessons|slice(linum,4) %}
+                    <li class="span3">
+                      <div class="thumbnail">
+                        <img src="{{ asset(lesson.image) }}" alt="">
+                        <div class="bottom">
+                          <dl>
+                            <dt><i class="icon-facetime-video"></i>{{ lesson.name }}</dt>
+                            <dd>
+                              <small>
+                                {{ lesson.description|slice(0, 28) }}
+                                {% if lesson.description|length > 28 %}
+                                  ...
+                                {% endif %}
+                              </small>
+                            </dd>
+                          </dl>
+                          <div class="tools">
+                            <div class="pull-left">
+                              <img src="{{ asset('/uploads/images/users/gravatar.jpeg') }}">
+                              <span class="strong">lichnow</span>
+                            </div>
+                            <div class="pull-right">
+                              <i class="icon-star-empty"></i>
+                              <span class="small">200</span>
+                              <i class="icon-user"></i>
+                              <span class="small">{{ lesson.learn }}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div> 
+                    </li>
+                    {% set linum = linum + 1 %}
+                  {% endfor %}
+                </ul>
+                {% endfor %}
             {#<div class="tabbable tabs-below">
               <div class="tab-content">
                 <blockquote>
