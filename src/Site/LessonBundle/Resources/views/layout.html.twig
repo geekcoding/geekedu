@@ -1,16 +1,12 @@
-{% extends 'SiteCommonBundle::layout.html.twig' %}
+{% extends 'SiteHomeBundle::layout.html.twig' %}
 {% block main %}
-    <div id="slide" class="container"style="padding-top:10px;">
-    {{ render(controller('SiteLessonBundle:Public:getSubTypes')) }}
-	  <div class="row-fluid">
-		    <div class="span12">
-		      <div id="lessonblock">{% block lessons %}{% endblock %}</div>
-		    </div>
-	  </div>
-    </div>
+    {% block lesson %}{% endblock %}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
     {% javascripts
-      '@SiteLessonBundle/Resources/public/js/main.js'
+        '@SiteLessonBundle/Resources/public/js/main.js'
     %}
-      <script src="{{ asset_url }}"></script>
+        <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock %}

@@ -12,13 +12,13 @@ group:
         deleted: 小组已被删除
 
 # Security
-"Bad credentials": 用户名或密码不正确,请重新登录!
+"Bad credentials": 用户名或密码不正确,请重新登录
 
 security:
     login:
         username: 用户名：
         password: 密码：
-        remember_me: 自动登录
+        remember_me: 记住我
         submit: 登录
 
 # Profile

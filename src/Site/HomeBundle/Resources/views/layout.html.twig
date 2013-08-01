@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+{% if baseinfo is defined %}
+    {% block title %}
+        <title>{% if baseinfo.title is defined %}{{ baseinfo.title }}{% endif %}</title>
+    {% endblock %}
+{% else %}
+    {% block baseinfo %}{{ render(controller('SiteHomeBundle:Public:baseInfo')) }}{% endblock %}
+{% endif %}
+{% block body %}
+    {{ render(controller('SiteHomeBundle:Public:header')) }}
+    <div class="wrap">
+	    {% block main %}{% endblock %}
+	    {{ render(controller('SiteHomeBundle:Public:footer')) }}
+	</div>
+{% endblock %}
+{% block stylesheets %}
+    {% include 'SiteHomeBundle:Public:stylesheets.html.twig' %}
+{% endblock %}
+{% block jslibraries %}
+    {% include 'SiteHomeBundle:Public:jslibraries.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+    {% javascripts
+        '@SiteHomeBundle/Resources/public/js/main.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

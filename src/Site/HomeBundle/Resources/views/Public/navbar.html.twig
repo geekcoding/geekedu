@@ -1,0 +1,61 @@
+<!-- 顶部导航栏开始 -->
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+ 
+      <a class="brand menupush" href="{{path('site_home_homepage')}}">{{ home.title }}</a>
+ 
+      <div class="nav-collapse collapse">
+            <ul class="nav pull-left">
+              <li class="active"><a class='menupush' href="{{ path('site_home_homepage') }}"><i class="icon-home"></i>首页</a></li>
+          {% for navi in navigates %}
+          <li>
+            <a href="{{navi.link}}" {% if navi.blank %} target="_blank" {% else %} class='menupush' {% endif %} >
+              {% if navi.icon %} <i class="{{navi.icon}}"></i>{% endif %}
+              &nbsp;{{navi.name}}
+            </a>
+          </li>
+          {% endfor %}
+            </ul>
+            <ul class="nav pull-right">
+            <form class="navbar-search">
+              <input type="text" class="search-query" placeholder="搜索课程">
+            </form>
+            <li class="divider-vertical"></li>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+              <li class="dropdown">
+                {% trans_default_domain 'FOSUserBundle' %}
+                <span class="dropdown-toggle navtag" data-toggle="dropdown" data-target="javascript:void(0)" href="{{path('site_user_homepage')}}">
+                  {% if gravatar_exists(app.user.profilepicture,'20') %}
+                     <img src="{{ gravatar(app.user.profilepicture) }}" />
+                  {% endif %}
+                  {{ app.user.username }}
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li><a href="{{path('site_user_homepage')}}"><i class="icon-user"></i>用户首页</a></li>
+                  <li><a href="#"><i class="icon-envelope"></i>消息通知</a></li>
+                  <li><a href="#"><i class="icon-star"></i>课程收藏</a></li>
+                  <li><a href="#"><i class="icon-shopping-cart"></i>订单管理</a></li>
+                  <li><a href="#"><i class="icon-cog"></i>个人设置</a></li>
+                  <li>{% if is_granted("ROLE_ADMIN") %}<a href="/admin">管理网站</a>{% endif %}</li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+                  </li>
+                </ul>
+              </li>
+            {% else %}
+              <li><a class="menupush navbar-login" href="{{ path('fos_user_security_login') }}"><i class="icon-lock"></i>&nbsp;&nbsp;登录 && 注册</a></li>
+            {% endif %}
+            </ul>
+      </div>
+ 
+    </div>
+  </div>
+</div>
+<!-- 顶部导航栏结束 -->

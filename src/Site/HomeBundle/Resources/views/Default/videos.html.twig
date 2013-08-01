@@ -1,0 +1,57 @@
+      <blockquote>
+        <div class="page-header">
+          <h4>每日课堂</h4>
+          <small>每天最新的课程与你分享!</small>
+        </div>
+      </blockquote>
+        <div id="newvideo" class="carousel slide">
+          <div class="carousel-inner">
+            {% set step = 4 %}
+            {% if newvideos|length % step  == 0 %}
+              {% set length = newvideos|length / step - 1 %}
+            {% else %}
+              {% set length = newvideos|length / step %}
+            {% endif %}
+            {% for nails in 0..length %}
+              <div {% if nails == 0 %} class="item active"{% else %} class="item"{% endif %}>
+                <ul class="thumbnails">
+                  {% set order = nails * step  %}
+                  {% for nail in order..order + step - 1 %}
+                    {% set i = 0 %}
+                    {% for video in newvideos %}
+                      {% if nail == i %}
+                        <li class="span3">
+                          <div class="thumbnail">
+                            {% if video.imgpath is not null %}
+                              <img src="{{ asset(video.imgpath) }}" alt="" style="height:170px;">
+                            {% else %}
+                              <img src="{{ asset(common.homeimg) }}" alt="" style="height:170px;">
+                            {% endif %}
+                            <a class="play-btn" href="{{ path('site_home_newvideo',{id:video.id}) }}"></a>
+                            <div class="content">
+                              <div class="pull-left">
+                                <h6>
+                                {{ video.title|slice(0, 15) }}
+                                {% if video.title|length > 15 %}
+                                  ...
+                                {% endif %}
+                                </h6>
+                              </div>
+                              <div class="pull-right">
+                                <img src="{{ asset(video.lesson.image) }}">
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      {% endif %}
+                      {% set i = i+1 %}
+                    {% endfor %}
+                  {% endfor %}
+                  <br>
+                </ul>
+              </div>
+            {% endfor %}
+          </div>
+          <a class="carousel-control left" href="#newvideo" data-slide="prev">&lsaquo;</a>
+          <a class="carousel-control right" href="#newvideo" data-slide="next">&rsaquo;</a>
+      </div>

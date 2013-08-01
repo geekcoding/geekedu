@@ -48,6 +48,21 @@ class User extends BaseUser
     protected $roles = array();
 
     /**
+     * @MongoDB\Int
+     */
+    protected $github_id;
+
+     /**
+     * @MongoDB\String
+     */
+    protected $github_name;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $github_access_token;
+
+    /**
      * Get id
      *
      * @return id $id
@@ -173,5 +188,71 @@ class User extends BaseUser
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set github_id
+     *
+     * @param string $githubId
+     * @return self
+     */
+    public function setGithubId($githubId)
+    {
+        $this->github_id = $githubId;
+        return $this;
+    }
+
+    /**
+     * Get github_id
+     *
+     * @return string $githubId
+     */
+    public function getGithubId()
+    {
+        return $this->github_id;
+    }
+
+    /**
+     * Set github_access_token
+     *
+     * @param string $githubAccessToken
+     * @return self
+     */
+    public function setGithubAccessToken($githubAccessToken)
+    {
+        $this->github_access_token = $githubAccessToken;
+        return $this;
+    }
+
+    /**
+     * Get github_access_token
+     *
+     * @return string $githubAccessToken
+     */
+    public function getGithubAccessToken()
+    {
+        return $this->github_access_token;
+    }
+
+    /**
+     * Set github_name
+     *
+     * @param string $githubName
+     * @return self
+     */
+    public function setGithubName($githubName)
+    {
+        $this->github_name = $githubName;
+        return $this;
+    }
+
+    /**
+     * Get github_name
+     *
+     * @return string $githubName
+     */
+    public function getGithubName()
+    {
+        return $this->github_name;
     }
 }

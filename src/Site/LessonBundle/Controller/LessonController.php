@@ -2,20 +2,20 @@
 
 namespace Site\LessonBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Site\LessonBundle\Controller\BaseController as BaseController;
 use Symfony\Component\HttpFoundation\Request;
 
-class LessonController extends Controller
+class LessonController extends BaseController
 {
-	public function indexAction($index,$content,Request $request){
-		$data['lessons'] = $this->get('model')->load('Site:LessonBundle:Lesson')->getListByType($index);
-		$data['lessons_page_count'] = ceil(count($data['lessons'])/10);
-		if($content == 'home' && $request->request->get('slide') == true){
-			return $this->render('SiteLessonBundle:Lesson:home.html.twig',$data);
-		}else if($content == 'block' && $request->request->get('slide') == true){
-			return $this->render('SiteLessonBundle:Lesson:block.html.twig',$data);
-		}else{
-			return $this->render('SiteLessonBundle:Lesson:index.html.twig',$data);
+	public function indexAction($index){
+		if($this->UserLib->checkLogin() == false){
+			$this->setReferer($this->getRequest()->getUri());
+			if($this->getReferer()){
+				return $this->redirect($this->generateUrl('fos_user_security_login'));
+			}
 		}
+		$lesson = $this->LessonModel->getOneShow($index);
+		$data = array('lesson' => $lesson);
+		return $this->render('SiteLessonBundle:Lesson:index.html.twig',$data);
 	}
 }

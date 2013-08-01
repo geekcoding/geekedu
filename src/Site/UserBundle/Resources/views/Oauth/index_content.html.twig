@@ -1,0 +1,27 @@
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#create_user" data-toggle="tab">创建账户</a></li>
+    <li><a href="#bind_user" data-toggle="tab">绑定账户</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane fade active in" id="create_user">
+      <div class="page-header">
+        <h5>创建新的GeekCoding账户<small> 或者 <a href="#">绑定到现有账户</a></small></h5>
+      </div>
+      <div class="page-content">
+          {% include 'SiteUserBundle:Oauth:createuser_form.html.twig' with 
+          { 'form':form,'errors':errors } %}
+      </div>
+    </div>
+    <div class="tab-pane fade" id="bind_user">
+    <div class="page-header">
+        <h5>绑定到你已经拥有的账户<small> 或者 <a href="#">创建新的GeekCoding账户</a></small></h5>
+      </div>
+      <div class="page-content">
+      sddfsdf
+          {#{% include 'SiteUserBundle:Oauth:binduser_form.html.twig' with 
+          { 'last_username':bind_data.last_username,'error':bind_data.error,'csrf_token':bind_data.csrf_token } %}#}
+      </div>
+    </div>
+  </div>
+</div>

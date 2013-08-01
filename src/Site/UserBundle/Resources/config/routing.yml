@@ -1,16 +1,10 @@
 site_user_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: SiteUserBundle:Default:index }
+    pattern: /user/home/{step}/{type}
+    defaults: { _controller: SiteUserBundle:Default:index,step:1,type:createoauth }
 
 fos_user_security_login:
     pattern:  /login.html
     defaults: { _controller: FOSUserBundle:Security:login }
-    options:
-        expose: true
-
-fos_user_registration_register:
-    pattern:  /register.html
-    defaults: { _controller: FOSUserBundle:Registration:register }
     options:
         expose: true
 
@@ -21,22 +15,16 @@ fos_user_security_check:
     options:
         expose: true
 
-user_unique_check:
-    pattern:  /user_unique_check
-    defaults: { _controller: SiteUserBundle:Registration:checkunique }
+fos_user_security_logout:
+    pattern:  /logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+
+fos_user_registration_register:
+    pattern:  /register.html
+    defaults: { _controller: FOSUserBundle:Registration:register }
     options:
         expose: true
 
-fos_user_registration_check_email:
-    path:     /check-email
-    defaults: { _controller: FOSUserBundle:Registration:checkEmail }
-    methods:  [GET,POST]
-
-fos_user_registration_confirm:
-    path:     /confirm/{token}
-    defaults: { _controller: FOSUserBundle:Registration:confirm }
-    methods:  [GET]
-
-fos_user_registration_confirmed:
-    path:     /confirmed
-    defaults: { _controller: FOSUserBundle:Registration:confirmed }
+site_user_oauth:
+    pattern: /user/oauth
+    defaults: { _controller: SiteUserBundle:Oauth:index }

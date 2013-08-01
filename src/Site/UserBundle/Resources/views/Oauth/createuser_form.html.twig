@@ -1,0 +1,18 @@
+{% form_theme form with 'SiteUserBundle:Form:fields2.html.twig' %}
+{% if errors %}
+<div class="alert alert-error">
+<ul>
+{% for error in errors %}
+    <li>{{ error.message }}!</li>
+{% endfor %}
+</ul>
+</div>
+{% endif %}
+{{ form_start(form,{'action':path('site_user_homepage'),'attr':{'class':'form-horizontal','novalidate':''}}) }}
+	{{form_row(form.username)}}
+	{{form_row(form.email)}}
+	{{form_row(form.plainPassword)}}
+	<div class="form-actions">
+	    {{form_row(form.create)}}
+	</div>
+{{ form_end(form) }}

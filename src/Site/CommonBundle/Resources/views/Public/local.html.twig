@@ -1,9 +1,0 @@
-<ul class="breadcrumb">
-	{% for item in local %}
-  	{% if item.href is not defined %}
-  	<li class="active">{{item.name}}</li>
-  	{% else %}
-    <li><a href="{{item.href}}">{{item.name}}</a> <span class="divider">/</span></li>
-    {% endif %}
-    {% endfor %}
-</ul>

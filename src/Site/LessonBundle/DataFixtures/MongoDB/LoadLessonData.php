@@ -281,6 +281,7 @@ class LoadLessonData extends AbstractFixture implements OrderedFixtureInterface
             $lesson->setOrder($value['order']);
             $lesson->setDescription($value['description']);
             $lesson->setLearn($value['learn']);
+            $lesson->setIndex($value['index']);
             $lesson->setLevel($this->getReference($value['level'].'level'));
             $lesson->setType($this->getReference($value['type'].'type'));
             $manager->persist($lesson);

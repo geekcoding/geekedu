@@ -1,5 +1,6 @@
-fos_user_security:
-    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+# FosUserBundle Routes
+# fos_user_security:
+#     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
 fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
@@ -17,6 +18,22 @@ fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
 
+#HWIOAuthBundle routes
+# hwi_oauth_security:
+#     resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+#     prefix: /login
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix: /login
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /login
+
+github_login:
+    pattern: /login/check-github
+
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
@@ -32,6 +49,14 @@ admin_logout:
     pattern:  /admin/logout
     defaults: { _controller: FOSUserBundle:Security:logout }
 
+site_core:
+    resource: "@SiteCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+site_home:
+    resource: "@SiteHomeBundle/Resources/config/routing.yml"
+    prefix:   /
+
 site_user:
     resource: "@SiteUserBundle/Resources/config/routing.yml"
     prefix:   /
@@ -44,10 +69,6 @@ site_library:
     resource: "@SiteLibraryBundle/Resources/config/routing.yml"
     prefix:   /library
 
-site_common:
-    resource: "@SiteCommonBundle/Resources/config/routing.yml"
-    prefix:   /
-
 site_lesson:
     resource: "@SiteLessonBundle/Resources/config/routing.yml"
     prefix:   /lesson
@@ -59,3 +80,10 @@ admin_global:
 admin_user:
     resource: "@AdminUserBundle/Resources/config/routing.yml"
     prefix:   /admin/user
+
+restful_user:
+    resource: "@SiteUserBundle/Controller/RestfulController.php"
+    prefix:   /userrest
+    type:     annotation
+    defaults: { _format: 'json' }
+    requirements: { _format: (xml|json), _method: POST }

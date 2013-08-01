@@ -1,0 +1,24 @@
+.tabbable{
+	> .nav{
+		margin-bottom: 0;
+	}
+	> .tab-content{
+		.box-shadow(1px -1px 3px 0px rgba(150,150,150,0.75));
+		#base > .block(@radius:0 0 8px 8px);
+		#base > .background(@color:@white,@alpha:1);
+		#base > .border-left(@color: #DDDDDD);
+		#base > .border-bottom(@color: #DDDDDD);
+		#base > .border-right(@color: #DDDDDD);
+		> .tab-pane{
+			> .page-header{
+				#base > .block(@margin: 0 0 0 10px,@padding: 0,@width: auto);
+			}
+			> .page-content{
+				#base > .block();
+				.form-horizontal{
+					margin-top: 20px;
+				}
+			}
+		}
+	}
+}

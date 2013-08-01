@@ -1,0 +1,80 @@
+.thumbnails{
+		margin-bottom: 0;
+		[class*="span"]{
+			margin-bottom: 10px;
+			padding-bottom: 0;
+		}
+		a.thumbnail:hover,
+		a.thumbnail:focus {
+		  .box-shadow(@shadow: 1px 1px 3px rgba(0,0,0,0.9));
+		}
+		.thumbnail{
+			#base > .block(@margin:0,@padding:0,@shadow: 1px 1px 3px rgba(0,0,0,0.45),@radius: 4px);
+		    #base > .background(@color: #fff,1);
+		    #base > .font-style(@color:@grayDark);
+		    #base > .font-position(@text-align: center);
+		    border:none;
+		    transition:all 0.2s ease;
+            .play-btn{
+            	#base > .block(@margin: -120px 0 0 70px,@height: 70px,@width: 70px);
+            	#base > .block-position(@position: absolute);
+            	#base > .background-image(@img:'../img/videoplay.png'; @repeat: repeat);
+				&:hover{
+					background-position: 0 -70px;
+			    }
+            }
+            > img{
+				#base > .block(@height: 170px,@radius:4px 4px 0 0);
+			}
+			> .content{
+				#base > .block(@margin:5px 5%,@width: 90%);
+				#base > .font-style();
+				#base > .font-position(@line-height: 30px);
+				min-height: 30px;
+				h6{
+					#base > .block(@height: 100%,@margin:0,@padding: 2px 0 0 0);
+					#base > .font-position(@line-height: 30px);
+				}
+				img{
+					#base > .block(@width: 25px,@height: 25px,@margin: 2.5px 0 0 0,@radius:25px);
+					#base > .font-position(@line-height: 25px);
+				}
+				.tools{
+			    	#base > .border-top(solid,1px,#ccc,0.5);
+			    	#base > .block(@height:30px,@padding: 7px 0 0 0,@margin:5px auto 0 auto);
+						span,i,img{
+							#base > .block-position(@float: left);
+						}
+						img{
+							#base > .block(@width: 20px,@height: 20px,@radius:3px);
+						}
+						span{
+							margin-left: 3px;
+							padding-top: 2px;
+							#base > .font-position(@line-height: 25px);
+						}
+						i{
+							margin-left: 6px;
+							#base > .font-position(@line-height: 30px);
+							#base > .font-style(@color: @base-color - #444);
+						}
+						.small{
+							#base > .font-style(@color: @base-color - #111,@family:normal);
+							#base > .font-size(@size:@baseFontSize - 6px);
+						}
+						.strong{
+							#base > .font-style(@color: @base-color - #444,@family:'Acme',sans-serif);
+							#base > .font-size(@size:@fontSizeSmall);
+						}
+				}
+			}
+		}
+	}
+#newvideo{
+	.thumbnails{
+		> [class*="span"]{
+			margin-bottom: 0;
+		}
+        padding-right: 4px;
+	}
+}

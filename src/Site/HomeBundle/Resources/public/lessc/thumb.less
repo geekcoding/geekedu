@@ -1,0 +1,119 @@
+.thumbnails{
+		margin-bottom: 0;
+		[class*="span"]{
+			margin-bottom: 10px;
+			padding-bottom: 0;
+		}
+		a.thumbnail:hover,
+		a.thumbnail:focus {
+		  .box-shadow(@shadow: 1px 1px 3px rgba(0,0,0,0.9));
+		}
+		.thumbnail{
+		    #translucent > .background(@color: #fff);
+		    color:@grayDark;
+		    text-align: center;
+		    padding: 0;
+		    margin: 0;
+		    border:none;
+		    .box-shadow(@shadow: 1px 1px 3px rgba(0,0,0,0.45));
+		    transition:all 0.2s ease;
+		    .border-radius(@radius: 4px);
+            .play-btn{
+                height:70px;
+                width:70px;
+                display:block;
+                background:url('../img/videoplay.png') no-repeat;
+				margin-top:-120px;
+				margin-left:70px;
+				position:absolute;
+				&:hover{
+					background-position: 0 -70px;
+			    }
+            }
+            img{
+				display: block;
+				margin: 0;
+            	width: 100%;
+            	height: 170px;
+            	.border-radius(@radius: 4px 4px 0 0);
+			}
+			.bottom{
+				padding: 0;
+				text-align: left;
+				line-height: 30px;
+				min-height: 30px;
+				margin: 5px 5%;
+				h6{
+					padding: 2px 0 0 0;
+					margin: 0;
+					height: 100%;
+					line-height: 30px;
+				}
+				dl{
+					margin:0;
+					padding:0;
+					dt,dd{
+						padding: 0;
+						margin: 0;
+						i{
+							margin-right: 5px;
+						}
+					}
+				}
+				.tools{
+					border-top-style: solid;
+					border-top-width: 1px;
+					#translucent > .border(@color: #ccc, @alpha: 0.5);
+					height: 30px;
+					padding: 0;
+					margin-top: 5px;
+					padding-top: 7px;
+					span,i,img{
+						float: left;
+					}
+					img{
+						height: 20px;
+						width: 20px;
+						.border-radius(@radius: 3px);
+						display: block;
+					}
+					span{
+						margin-left: 3px;
+						padding-top: 2px;
+						line-height: 30px;
+					}
+					i{
+						margin-left: 6px;
+						line-height: 30px;
+						color:#666;
+					}
+					.small{
+						color:#999;
+						font-family: normal;
+						font-size:8px; 
+					}
+					.strong{
+						font-family: 'Acme',sans-serif;
+						color:#666;
+						font-size: 12px;
+					}
+				}
+				img{
+					height: 25px;
+					width: 25px;
+					margin-top: 2.5px;
+					line-height: 25px;
+					.border-radius(@radius: 25px);
+					display: block;
+				}
+			}
+		}
+	}
+#newvideo{
+	.thumbnails{
+		> [class*="span"]{
+			margin-bottom: 0;
+		}
+        padding-right: 4px;
+	}
+}

@@ -1,3 +1,9 @@
+site_lesson_show:
+    pattern:  /show/{index}
+    defaults: { _controller: SiteLessonBundle:Lesson:index,index:'html5' }
+    options:
+        expose: true
+
 site_lesson_category:
     pattern:  /{index}/{page}
     defaults: { _controller: SiteLessonBundle:Default:index,index:'all',page:1}

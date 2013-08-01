@@ -1,0 +1,7 @@
+{% block form_addon_widget %}
+{% spaceless %}
+    <span class="add-on"}>{{ addon ~ value }}</span>
+    {% set type = type|default('text') %}
+    <input {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+{% endspaceless %}
+{% endblock form_addon_widget %}

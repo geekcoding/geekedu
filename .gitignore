@@ -13,3 +13,4 @@
 *.swp
 *.bak
 *.DS_Store
+/nbproject/private/

@@ -1,0 +1,53 @@
+h1,h2,h3,h4,h5,h6{
+	#base > .font-style(@color:@base-color - #666,@family:'Acme', sans-serif);
+}
+a{
+	#base > .font-style(@color:@base-color - #222);
+}
+small{
+	#base > .font-style(@color:#b7b7b7,@family:normal);
+}
+blockquote{
+	#base > .block(@margin: 0 auto 5px 0,@padding: 0 0 0 15px,@height: 30px);
+	#base > .border-left(@width: 5px);
+	> .page-header{
+	    #base > .block(@padding: 4px 0 0 0);
+	    #base > .border-bottom();
+		h4{
+			#base > .block(@margin: 0,@width: auto);
+			#base > .block-position(@float: left);
+			#base > .font-position(@line-height: 20px);
+		}
+		small{
+			#base > .font-position(@line-height: 25px);
+		}
+	}
+}
+dl{
+	#base > .block(@margin: 0);
+	dt{
+		#base > .block(@margin: 0);
+		#base > .font-style(@family:'Acme', sans-serif);
+		i{
+			margin-right: 5px;
+		}
+	}
+	dd{
+		#base > .block(@margin: 0);
+	}
+}
+.alert{
+	margin-bottom: 0;
+}
+.alert-error{
+	margin: 10px 0 -5px 0;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+hr{
+	#base > .block(@display: inline,@width: 100%,@height: 0,@margin: 10px 0 20px 0);
+	#base > .block-position(@float: left);
+	border-top: solid 1px #ccc;
+	border-bottom: solid 1px #fff;
+	overflow: hidden;
+}

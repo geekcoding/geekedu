@@ -12,14 +12,9 @@
  */
 
 namespace Site\LessonBundle\Model;
-
-class Lesson extends \Hmvc\Model
+use Site\CoreBundle\Interclass\Model as BaseModel;
+class Lesson extends BaseModel
 {
-
-    protected function init()
-    {
-    	$this->rp = $this->dm->getRepository('SiteLessonBundle:Lesson');
-    }
     public function getAll()
     {
          $lessons = $this->rp->findAll();
@@ -30,6 +25,11 @@ class Lesson extends \Hmvc\Model
         $lessons = $this->rp->findAllByLearn();
         return $lessons;
     }
+    public function getOneShow($index)
+    {
+        $lesson = $this->rp->findOneBy(array('index' => $index));
+        return $lesson;
+    }
     public function getList($skip = 0,$limit = 20){
         return $this->rp->findAllByOrder($skip,$limit);
     }
@@ -38,7 +38,7 @@ class Lesson extends \Hmvc\Model
         if($index == null){
             return $this->getList($skip,$limit);
         }
-        $type = $this->container->get('model')->load('Site:LessonBundle:Type')->getOneByRname($index);
+        $type = $this->getModel()->get('Site:LessonBundle:Type')->getOneByRname($index);
     	$lessons = $this->rp->findLimitByType($type,$skip,$limit);
     	return $lessons;
     }

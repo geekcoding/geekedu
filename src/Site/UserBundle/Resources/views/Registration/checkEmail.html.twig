@@ -1,4 +1,16 @@
 {% extends "SiteUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
 {% block fos_user_content %}
-    {{ include 'SiteUserBundle:Registration.html.twig' }}
+    <div id="slide" class="container">
+		<div class="row-fluid block">
+			<div class="span2"></div>
+			<div class="span8">
+		        <div class="alert alert-info emsg">
+		            {{ 'registration.check_email'|trans({'%email%': user.email}) }}
+		        </div>
+			</div>
+		</div>
+	</div>
 {% endblock fos_user_content %}

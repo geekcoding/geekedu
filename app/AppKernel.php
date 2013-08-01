@@ -16,27 +16,25 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new JMS\AopBundle\JMSAopBundle(),
-            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
-            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Fkr\CssURLRewriteBundle\FkrCssURLRewriteBundle(),
-            new Site\CommonBundle\SiteCommonBundle(),
+            new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
             new Site\LibraryBundle\SiteLibraryBundle(),
             new Site\ForumBundle\SiteForumBundle(),
             new Site\UserBundle\SiteUserBundle(),
             new Site\LessonBundle\SiteLessonBundle(),
             new Admin\GlobalBundle\AdminGlobalBundle(),
             new Admin\UserBundle\AdminUserBundle(),
-            new Geek\HmvcBundle\GeekHmvcBundle(),
+            new Site\CoreBundle\SiteCoreBundle(),
+            new Site\HomeBundle\SiteHomeBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            // $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();

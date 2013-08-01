@@ -4,8 +4,8 @@ imports:
 
 framework:
     #esi:             ~
-    translator:      { fallback: '%locale%' }
-    secret:          %secret%
+    translator:      { fallback: '%system_locale%' }
+    secret:          %system_secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: %kernel.debug%
@@ -24,6 +24,9 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    form:
+        resources:
+            - 'SiteHomeBundle:Form:fields.html.twig'
 
 # Assetic Configuration
 assetic:
@@ -76,12 +79,31 @@ fos_user:
         form:
             type: site_user_registration
             validation_groups:  [Registration, SiteRegistration]
-            handler: site_registration.form.handler
         confirmation:
             enabled:    true
             from_email:
                 address:        lichnow@geekcoding.net
                 sender_name:    极客编码用户验证
+
+hwi_oauth:
+    connect:
+        account_connector: site_user.fosuser_provider
+    firewall_name: main
+    fosub:
+        username_iterations: 30
+        properties:
+            github: github_id
+    resource_owners:
+        github:
+            type:                github
+            client_id:           e9dedf979cb1069721b7
+            client_secret:       a14a6f86900ca129c0f4a648742f8fd582c5a9d9
+            user_response_class: 'Site\UserBundle\Oauth\Response\GithubResponse'
+
+ornicar_gravatar: 
+    rating: g
+    size: 19
+    default: mm
 
 fkr_css_url_rewrite:
     rewrite_only_if_file_exists: true

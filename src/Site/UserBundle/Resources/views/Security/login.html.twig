@@ -1,5 +1,12 @@
 {% extends "SiteUserBundle::layout.html.twig" %}
-{% trans_default_domain 'FOSUserBundle' %}
 {% block fos_user_content %}
-{% include "SiteUserBundle:Security:login_content.html.twig" %}
+<div class="container">
+<div class="row-fluid">
+	<div class="span2"></div>
+	<div id="form-content" class="span7">
+    {% include "SiteUserBundle:Security:login_content.html.twig" %}
+    </div>
+	<div class="span2"></div>
+</div>
+</div>
 {% endblock fos_user_content %}

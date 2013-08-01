@@ -1,0 +1,76 @@
+#base{
+	// 字体
+    // -------------------------
+    .font-style(@color:@font-color,@family: @font-family,@text-decoration: @text-decoration){
+    	color:@color;
+    	font-family: @family;
+    	text-decoration: @text-decoration;
+    }
+    .font-size(@size:@font-size,@weight:@font-weight){
+    	font-size: @size;
+    	font-weight: @weight;
+    }
+    .font-position(@text-align: left,@line-height: 100%){
+    	text-align: @text-align;
+    	line-height: @line-height;
+    }
+
+	// 布局块
+    // -------------------------
+    .block(@height:@block-height,@width: @block-width,@display: block,
+    	@padding: @block-padding,@margin: @block-margin,@shadow: @block-shadow,@radius:@block-radius){
+    	width: @width;
+    	height: @height;
+    	margin: @margin;
+    	padding: @padding;
+    	.box-shadow(@shadow);
+    	.border-radius(@radius);
+    	display: @display
+    }
+    .block-position(@position:relative,@float:none){
+    	position: @position;
+    	float: @float;
+    }
+	// 边框
+    // -------------------------
+	.border(@style: @border-style,@width: @border-width,@color:@border-color,@alpha:@border-alpha ){
+		border-style: @style;
+		border-width: @width;
+		#translucent > .border(@color, @alpha);
+	}
+	.border-left(@style: @border-style,@width: @border-width,@color:@border-color,@alpha:@border-alpha ){
+		border-left-style: @style;
+		border-left-width: @width;
+		#translucent > .border(@color, @alpha);
+	}
+	.border-right(@style: @border-style,@width: @border-width,@color:@border-color,@alpha:@border-alpha ){
+		border-right-style: @style;
+		border-right-width: @width;
+		#translucent > .border(@color, @alpha);
+	}
+	.border-top(@style: @border-style,@width: @border-width,@color:@border-color,@alpha:@border-alpha ){
+		border-top-style: @style;
+		border-top-width: @width;
+		#translucent > .border(@color, @alpha);
+	}
+	.border-bottom(@style: @border-style,@width: @border-width,@color:@border-color,@alpha:@border-alpha ){
+		border-bottom-style: @style;
+		border-bottom-width: @width;
+		#translucent > .border(@color, @alpha);
+	}
+	// 背景
+	// -------------------------
+
+	.background(@color:@background-color,@alpha:@background-alpha){
+		#translucent > .background(@color, @alpha);
+	}
+	.background-image(@img){
+		background: url("@{img}");
+	}
+	.background-image(@img,  @repeat){
+		background: url("@{img}") @repeat;
+	}
+	.background-image(@img, @repeat, @color){
+		background: @color url("@{img}") @repeat;
+	}
+}

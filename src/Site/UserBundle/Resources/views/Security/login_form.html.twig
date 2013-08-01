@@ -1,0 +1,32 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% if error %}
+<div class="alert alert-error">{{ error|trans }}!</div>
+{% endif %}
+<form id="login_form" class="login_form" novalidate action="{{ path("fos_user_security_check") }}" method="post">
+	<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+	<div class="input-prepend">
+	    <span class="add-on"><i class="icon-user"></i></span>
+	    <input class="input-large" type="text" id="username" name="_username" value="{{ last_username }}" 
+	        required="required" placeholder="请输入您的用户名/邮箱" />
+	</div>
+	<div class="input-prepend">
+		<span class="add-on"><i class="icon-key"></i></span>
+		<input class="input-large" type="password" id="password" name="_password" required="required"
+		    placeholder="请输入您的密码" />
+	</div>
+	<div class="link-group">
+		<div class="controls">
+			<label class="checkbox" for="remember_me">
+				记住我
+				<input type="checkbox" id="remember_me" name="_remember_me" checked="checked" value="on" />
+			</label>
+		</div>
+		<a href="#" title="">忘记密码,需找回?</a>
+	</div>
+	<div class="action-group">
+		<section class="controls">
+			<input class="button button-small button-rounded button-flat-royal" type="submit" id="login_btn" name="login_btn" value="登录" />
+		</section>
+		<a class="to_registration" href="{{ path('fos_user_registration_register') }}">创建你的GEEKER账户</a>
+	</div>
+</form>

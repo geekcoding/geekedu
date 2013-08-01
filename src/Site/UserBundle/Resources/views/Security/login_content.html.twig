@@ -1,59 +1,25 @@
-{% trans_default_domain 'FOSUserBundle' %}
-<div id="slide" class="container">
-<div class="row-fluid block">
-	<div class="span2"></div>
-	<div class="span8 boxblock">
-		<div id="userslide">
-			<blockquote>
-				<div class="page-header">
-					<div class="row-fluid">
-						<div class="span12">
-							<h4>登录极客编码</h4>
-							<small>立即开始学习编程课程!</small>
-						</div>
-					</div>
-				</div>
-			</blockquote>
-			{% if error %}
-			<div class="alert alert-error">{{ error|trans }}!</div>
-			{% endif %}
-			<form id="login_form" class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
-				<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-				<div class="control-group">
-					<label class="control-label" for="username">{{ 'security.login.username'|trans }}</label>
-					<div class="controls">
-						<input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" class="control-label" for="password">{{ 'security.login.password'|trans }}</label>
-					<div class="controls">
-						<input type="password" id="password" name="_password" required="required" />
-					</div>
-				</div>
-				<div class="control-group check-group">
-					<div class="controls">
-						<label class="checkbox" for="remember_me">
-							{{ 'security.login.remember_me'|trans }}
-							<input type="checkbox" id="remember_me" name="_remember_me" checked="checked" value="on" />
-						</label>
-					</div>
-				</div>
-				<div class="form-actions">
-					<input class="pull-left btn btn-success" type="submit" id="login_btn" name="login_btn" value="登录本站" />
-					<div class="pull-right">
-						还没有帐号?
-						<a type="button" class="btn security" href="{{ path('fos_user_registration_register') }}">立即注册</a>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-	<div class="span2"></div>
-</div>
-</div>
-{% javascripts
-  '@SiteUserBundle/Resources/public/js/login.js'
-%}
-  <script src="{{ asset_url }}"></script>
-{% endjavascripts %}
+        <section class="box">
+            <section class="title">
+				<h4>登录极客编码-立即开始学习编程!</h4>
+				<i class="icon-spinner icon-spin icon-large"></i>
+			</section>
+			<section class="row-fluid content">
+			    <section class="span5">
+			    	<section class="box-wrap">
+			    	    {% include 'SiteUserBundle:Security:login_third.html.twig' %}
+			    	</section>
+			    </section>
+			    <section class="span7">
+			    	<section class="box-wrap box-wrap-right">
+			    		<section class="box-content">
+			    	    	<section class="box-wrap-title">
+								<h5>通过geekcoding登录</h5>
+							</section>
+							<section class="box-wrap-content">
+								{% include 'SiteUserBundle:Security:login_form.html.twig' %}
+							</section>
+			    	    </section>
+			    	</section>
+			    </section>
+			</section>
+		</section>

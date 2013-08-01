@@ -1,4 +1,15 @@
-{% extends 'SiteCommonBundle::layout.html.twig' %}
-{% block lessons %}
-    {% block main %}{% include 'SiteLessonBundle:Default:index_content.html.twig' %}{% endblock %}
+{% extends 'SiteLessonBundle::layout.html.twig' %}
+{% block lesson %}
+    <div class="container" style="padding-top:10px;">
+  {{ render(controller('SiteLessonBundle:Public:getSubTypes')) }}
+	<div class="row-fluid block">
+		<div class="span12">
+		  {% include 'SiteLessonBundle:Default:lessonblock.html.twig' %}
+      <div class="pagination pagination-centered">
+        {{ render(controller('SiteLessonBundle:Default:pagination',
+        {'page':current_page,'page_count':page_count,'lesson_route':lesson_route,'index':lesson_index})) }}
+      </div>
+    </div>
+	</div>
+</div>
 {% endblock %}

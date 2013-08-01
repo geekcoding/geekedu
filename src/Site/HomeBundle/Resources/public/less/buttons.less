@@ -1,0 +1,27 @@
+.button-list{
+    margin: 15px auto;
+    a{
+		#base > .font-size(@size:@fontSizeSmall);
+		#base > .font-position(@text-align: left);
+		margin-top: 20px;
+		padding:0;
+		width: @gridColumnWidth1200*2+@gridGutterWidth1200*2.5;
+		i , i + span{
+			#base > .font-position(@line-height: 32px);
+			#base > .block-position(@float: left);
+		}
+		i{
+			#base > .border-right(@color: #000, @alpha: 0.2);
+			#base > .font-position(@line-height: 29px);
+			#base > .block(
+				@width: 1em,
+				@height: 24px,
+				@padding: 0 @gridGutterWidth1200/2 0 @gridGutterWidth1200/4,
+				@margin: 3px @gridGutterWidth1200/2 0 auto
+			);
+		}
+		&:first-child{
+			margin-top: 0;
+	    }
+	}
+}

@@ -2,13 +2,14 @@
 
 namespace Site\LessonBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Site\LessonBundle\Controller\BaseController as BaseController;
 
-class PublicController extends Controller
+class PublicController extends BaseController
 {
     public function getSubTypesAction()
     {
-        $data['subtypes'] = $this->get('model')->load('Site:LessonBundle:Type')->getGradeTypes(1);
+        $data['subtypes'] = $this->LessonTypeModel->getGradeTypes(1);
         return $this->render('SiteLessonBundle:Public:subtypes.html.twig',$data);
     }
     public function getChindrenTypes($otypes,$ptype)

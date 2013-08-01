@@ -11,18 +11,32 @@ class RegistrationFormType extends BaseType
     {
         parent::buildForm($builder, $options);
         $builder
-            ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
-            ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-            ->add('plainPassword', 'repeated', array(
+            ->add('username', null, array(
+                'label' => 'form.username', 
+                'translation_domain' => 'FOSUserBundle',
+                'attr' => array(
+                    'placeholder' => '请输入用户名',
+                    'addon' => "<i class='icon-user'></i>"
+                )
+            ))
+            ->add('email', 'email', array(
+                'label' => 'form.email',
+                'translation_domain' => 'FOSUserBundle',
+                'attr' => array(
+                    'placeholder' => '请输入邮箱地址',
+                    'addon' => "<i class='icon-envelope'></i>"
+                )
+            ))->add('plainPassword', 'repeated', array(
                 'type' => 'password',
                 'options' => array('translation_domain' => 'FOSUserBundle'),
-                'first_options' => array('label' => 'form.password'),
-                'second_options' => array('label' => 'form.password_confirmation'),
-                'invalid_message' => 'fos_user.password.mismatch',
+                'first_options' => array('label' => 'form.password',
+                    'attr' => array('placeholder' => '请输入密码','addon' => "<i class='icon-lock'></i>")),
+                'second_options' => array('label' => 'form.password_confirmation',
+                    'attr' => array('placeholder' => '请重复密码','addon' => "<i class='icon-key'></i>")),
+                'invalid_message' => 'fos_user.password.mismatch'
             ))
         ;
     }
-
     public function getName()
     {
         return 'site_user_registration';

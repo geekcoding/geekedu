@@ -1,6 +1,7 @@
 security:
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
+        Site\UserBundle\Oauth\User\OAuthUser: sha512
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
@@ -8,7 +9,11 @@ security:
 
     providers:
         fos_userbundle:
-            id: fos_user.user_provider.username
+            # id: fos_user.user_provider.username
+            id: fos_user.user_manager
+
+        hwi_oauthbundle:
+            id: site_user.oauthuser_provider
 
     firewalls:
         dev:
@@ -32,14 +37,33 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
-                # always_use_default_target_path: true
-                default_target_path: /
-                # check_path: /user_check
-                success_handler: authentication_handler
-                failure_handler: authentication_handler
+                default_target_path: site_user_homepage
+                login_path: fos_user_security_login
+                failure_path: fos_user_security_login
+                check_path: fos_user_security_check
+                success_handler: site_user.listener.authentication_handler
+                failure_handler: site_user.listener.authentication_handler
+            oauth:
+                resource_owners:
+                    github: "/login/check-github"
+                login_path: fos_user_security_login
+                failure_path: fos_user_security_login
+                oauth_user_provider:
+                    service: site_user.fosuser_provider
+                default_target_path: site_user_homepage
             logout:
-                target: /login.html
+                path: fos_user_security_logout
+                target: fos_user_security_login
             anonymous:    true
+
+        # login:
+        #     pattern:  ^/login$
+        #     security: false
+        #     remember_me:
+        #         key: "%system_secret%"
+        #         lifetime: 31536000
+        #         path: /
+        #         domain: ~
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

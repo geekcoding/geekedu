@@ -1,0 +1,29 @@
+parameters:
+    security.exception_listener.class: Site\CoreBundle\Security\Firewall\ExceptionListener
+    core_tools.restful.class: Site\CoreBundle\Tools\RestfulTools
+    core_tools.model.class: Site\CoreBundle\Tools\ModelTools
+    core_tools.library.class: Site\CoreBundle\Tools\LibraryTools
+    core_tools.container.class: Site\CoreBundle\Tools\ToolsContainer
+
+services:
+    core.listener.controller:
+        class: Site\CoreBundle\EventListener\ControllerListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+
+    core.tools.restful:
+        class: %core_tools.restful.class%
+        arguments: ['@service_container']
+
+    core.tools.model:
+       class: %core_tools.model.class%
+       arguments: [ '@doctrine_mongodb.odm.default_document_manager','@service_container' ]
+
+    core.tools.library:
+       class: %core_tools.library.class%
+       arguments: [ '@service_container' ]
+
+    tools:
+       class: %core_tools.container.class%
+       arguments: [ '@service_container' ]
+

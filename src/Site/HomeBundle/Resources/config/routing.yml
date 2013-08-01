@@ -1,0 +1,8 @@
+site_home_homepage:
+    pattern:  /
+    defaults: { _controller: SiteHomeBundle:Default:index }
+
+site_home_newvideo:
+    pattern: /newvideo
+    defaults: { _controller: SiteHomeBundle:Default:newVideo }
+    methods:  [GET]

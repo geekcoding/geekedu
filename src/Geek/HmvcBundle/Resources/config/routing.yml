@@ -1,3 +1,0 @@
-geek_hmvc_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: GeekHmvcBundle:Default:index }

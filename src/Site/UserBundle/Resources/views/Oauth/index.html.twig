@@ -1,0 +1,13 @@
+{% extends 'SiteHomeBundle::layout.html.twig' %}
+{% block main %}
+    <div class="container">
+        <div class="row-fluid">
+        	<div class="span2"></div>
+        	<div class="span8">
+        	    <h1 style="text-align:center;">使用社会化账户登录</h1>
+        		{% include 'SiteUserBundle:Oauth:index_content.html.twig' %}
+        	</div>
+        	<div class="span2"></div>
+        </div>
+    </div>
+{% endblock %}

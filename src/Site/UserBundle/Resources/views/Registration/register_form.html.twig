@@ -1,0 +1,17 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% import "SiteUserBundle:Macros:alert_errors.html.twig" as macros %}
+{% form_theme form with 'SiteUserBundle:Form:fields1.html.twig' %}
+{% if errors is not empty %}
+    <div class="alert alert-error">
+        <ul>{{ macros.alert_errors(errors) }}</ul>
+    </div>
+{% endif %}
+<form id="register_form" novalidate action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+	{{ form_widget(form) }}
+	<div class="action-group">
+		<section class="controls">
+			<input class="button button-small button-rounded button-flat-royal" type="submit" value="开始学习" />
+		</section>
+		<a class="to_login" href="{{ path('fos_user_security_login') }}">你已经有账号了?</a>
+	</div>
+</form>

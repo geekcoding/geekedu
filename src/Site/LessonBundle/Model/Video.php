@@ -10,13 +10,9 @@
  * @author lichnow
  */
 namespace Site\LessonBundle\Model;
-
-class Video extends \Hmvc\Model
+use Site\CoreBundle\Interclass\Model as BaseModel;
+class Video extends BaseModel
 {
-	protected function init()
-	{
-		$this->rp = $this->dm->getRepository('SiteLessonBundle:Video');
-	}
     public function getList()
     {
          $videos = $this->rp->findAllOrderByCtime();

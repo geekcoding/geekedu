@@ -11,14 +11,9 @@
  * @author lichnow
  */
 namespace Site\LessonBundle\Model;
-
-class Type extends \Hmvc\Model
+use Site\CoreBundle\Interclass\Model as BaseModel;
+class Type extends BaseModel
 {
-
-    protected function init()
-    {
-    	$this->rp = $this->dm->getRepository('SiteLessonBundle:Type');
-    }
     public function getList()
     {
          $lessontypes = $this->rp->findAllByOrder();

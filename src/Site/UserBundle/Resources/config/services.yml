@@ -1,5 +1,11 @@
 parameters:
-    vendor_security.authentication_handler: Site\UserBundle\Handler\AuthenticationHandler
+    site_user.authentication_handler: Site\UserBundle\Handler\AuthenticationHandler
+    site_user.email_confirmation: Site\UserBundle\EventListener\EmailConfirmationListener
+    site_user.oauthuser_provider.class: Site\UserBundle\Oauth\Provider\OAuthUserProvider
+    site_user.fosuser_provider.class: Site\UserBundle\Oauth\Provider\FOSUBUserProvider
+    site_user.restful.class: Site\UserBundle\Controller\RestfulController
+    site_user.handle.step.class: Site\UserBundle\Handler\StepHandle
+    site_user.handle.step.createoauth.class: Site\UserBundle\Handler\StepHandle\CreateOauthHandle
 
 services:
     site_user.registration.form.type:
@@ -8,13 +14,34 @@ services:
         tags:
             - { name: form.type, alias: site_user_registration }
 
-    authentication_handler:
-        class:  %vendor_security.authentication_handler%
+    site_user.listener.authentication_handler:
+        class:  %site_user.authentication_handler%
         arguments:  ['@router','@service_container']
         tags:
             - { name: 'monolog.logger', channel: 'security' }
 
-    site_registration.form.handler:
-        class: Site\UserBundle\Handler\RegistrationFormHandler
-        scope: request
-        arguments: ["@fos_user.registration.form", "@request", "@fos_user.user_manager", "@fos_user.mailer", "@fos_user.util.token_generator"]
+    site_user.listener.email_confirmation:
+       class: %site_user.email_confirmation%
+       arguments:  ['@fos_user.mailer','@fos_user.util.token_generator','@router','@session','@request']
+       scope: request
+       tags:
+            - { name: 'kernel.event_subscriber' }
+
+    site_user.oauthuser_provider:
+        class: "%site_user.oauthuser_provider.class%"
+
+    site_user.fosuser_provider:
+        class: "%site_user.fosuser_provider.class%"
+        arguments: [@fos_user.user_manager,{github: github_id},'@site_user.oauthuser_provider','@service_container']
+
+    site_user.restful:
+        class: %site_user.restful.class%
+        arguments: ['@service_container']
+
+    site_user.handle.step:
+        class: %site_user.handle.step.class%
+        arguments: ['@service_container']
+
+    site_user.handle.step.createoauth:
+        class: %site_user.handle.step.createoauth.class%
+        arguments: ['@service_container']

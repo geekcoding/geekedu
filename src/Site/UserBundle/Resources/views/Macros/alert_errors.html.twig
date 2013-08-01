@@ -1,0 +1,9 @@
+{% macro alert_errors(errors) %}
+    {% for error in errors %}
+        {% if error is iterable %}
+            {{ _self.alert_errors(error) }}
+        {% else %}
+            <li>{{ error }}!</li>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}

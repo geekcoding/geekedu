@@ -20,6 +20,21 @@ class Video
     protected $title;
 
     /**
+    * @MongoDB\Int
+    */
+    protected $class;
+
+    /**
+    * @MongoDB\String
+    */
+    protected $courseware;
+
+    /**
+    * @MongoDB\String
+    */
+    protected $explanation;
+
+    /**
      * @MongoDB\Int
      */
     protected $order;
@@ -233,5 +248,71 @@ class Video
     public function getPublic()
     {
         return $this->public;
+    }
+
+    /**
+     * Set class
+     *
+     * @param int $class
+     * @return self
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+        return $this;
+    }
+
+    /**
+     * Get class
+     *
+     * @return int $class
+     */
+    public function getClass()
+    {
+        return $this->class;
+    }
+
+    /**
+     * Set courseware
+     *
+     * @param string $courseware
+     * @return self
+     */
+    public function setCourseware($courseware)
+    {
+        $this->courseware = $courseware;
+        return $this;
+    }
+
+    /**
+     * Get courseware
+     *
+     * @return string $courseware
+     */
+    public function getCourseware()
+    {
+        return $this->courseware;
+    }
+
+    /**
+     * Set explanation
+     *
+     * @param string $explanation
+     * @return self
+     */
+    public function setExplanation($explanation)
+    {
+        $this->explanation = $explanation;
+        return $this;
+    }
+
+    /**
+     * Get explanation
+     *
+     * @return string $explanation
+     */
+    public function getExplanation()
+    {
+        return $this->explanation;
     }
 }

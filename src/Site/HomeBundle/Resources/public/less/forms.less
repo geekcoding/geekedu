@@ -1,0 +1,39 @@
+form{
+		a{
+			#base > .font-style(@color:#969696);
+			#base > .font-size(@size:@fontSizeSmall);
+			#base > .font-position(@line-height: 30px;);
+			#base > .block-position(@float:right);
+			&:hover{
+				#base > .font-style(@text-decoration: underline);
+			}
+		}
+		.input-prepend{
+			margin-top: 15px;
+			input,.add-on{
+				height: 20px;
+				line-height: 20px;
+			}
+			.add-on{
+				padding-left: 7px;
+				padding-right: 7px;
+			}
+		}
+		.link-group{
+			margin: 8px 0 0 0;
+			clear:both;
+			.control-group;
+			.controls{
+				margin-left: 0;
+				width: 50%;
+				#base > .block-position(@float:left);
+				label{
+					#base > .font-size(@size:@fontSizeSmall);
+				}
+			}
+		}
+		.action-group{
+			.link-group;
+			padding-top: 20px;
+		}
+}

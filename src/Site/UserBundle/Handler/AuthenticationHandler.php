@@ -27,12 +27,11 @@ implements AuthenticationSuccessHandlerInterface,
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
-        $url = $request->getSession()->get('_security.target_path');
-        if ($targetPath = $request->getSession()->get('_security.target_path')) {
-            $url = $targetPath;
-        } else {
-            $url = $this->router->generate('site_common_homepage');
+        $url = $this->container->get('request')->getSession()->get('referer');
+        if(!$url || $url == ''){
+            $url = $this->container->get('router')->generate('site_user_homepage');
         }
+        $this->container->get('request')->getSession()->remove('referer');
         if ($request->isXmlHttpRequest() && 'POST' == $request->getMethod()) {
             $response = new Response(json_encode(array('result' => true,'url' => $url)));
             $response->headers->set('Content-Type', 'application/json');

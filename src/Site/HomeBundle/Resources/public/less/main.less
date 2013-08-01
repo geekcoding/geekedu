@@ -1,0 +1,29 @@
+@import "../libs/bootstrap/less/bootstrap.less";
+@import "../libs/bootstrap/less/responsive.less";
+@import "../libs/fontdiao/less/fontdiao.less";
+@import "variables.less";
+@import "base.less";
+@import "text.less";
+@import "thumb.less";
+@import "nav.less";
+@import "block.less";
+@import "buttons.less";
+@import "forms.less";
+@import "other.less";
+@FontAwesomePath: "/bundles/sitehome/font";
+@FontDiaoPath: "/bundles/sitehome/font";
+@gridColumnWidth1200: 60px;
+@gridGutterWidth1200: 20px;
+html,body{
+	padding: 0;
+	margin: 0;
+	#base > .font-size();
+	#base > .background-image(@img:"../img/bg.png",@repeat:repeat,@color:#f2f2f2);
+}
+.wrap{
+	#base > .block();
+	margin-top: 45px;
+}
+.row-fluid{
+	margin-top: 10px;
+}

@@ -1,0 +1,8 @@
+parameters:
+    gk_mailer.class:      Site\HomeBundle\Mailer
+    gk_mailer.transport:  sendmail
+
+services:
+    gk_mailer:
+        class:        "%gk_mailer.class%"
+        arguments:    ["%gk_mailer.transport%"]

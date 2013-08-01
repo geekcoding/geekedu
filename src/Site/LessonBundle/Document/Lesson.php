@@ -60,11 +60,12 @@ class Lesson
     * @MongoDB\Int
     */
     protected $order;
+
     public function __construct()
     {
         $this->videos = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
@@ -79,7 +80,7 @@ class Lesson
      * Set type
      *
      * @param Site\LessonBundle\Document\Type $type
-     * @return \Lesson
+     * @return self
      */
     public function setType(\Site\LessonBundle\Document\Type $type)
     {
@@ -101,7 +102,7 @@ class Lesson
      * Set level
      *
      * @param Site\LessonBundle\Document\Level $level
-     * @return \Lesson
+     * @return self
      */
     public function setLevel(\Site\LessonBundle\Document\Level $level)
     {
@@ -130,10 +131,10 @@ class Lesson
     }
 
     /**
-    * Remove videos
-    *
-    * @param <variableType$videos
-    */
+     * Remove videos
+     *
+     * @param Site\LessonBundle\Document\Video $videos
+     */
     public function removeVideo(\Site\LessonBundle\Document\Video $videos)
     {
         $this->videos->removeElement($videos);
@@ -153,7 +154,7 @@ class Lesson
      * Set name
      *
      * @param string $name
-     * @return \Lesson
+     * @return self
      */
     public function setName($name)
     {
@@ -175,7 +176,7 @@ class Lesson
      * Set price
      *
      * @param float $price
-     * @return \Lesson
+     * @return self
      */
     public function setPrice($price)
     {
@@ -197,7 +198,7 @@ class Lesson
      * Set image
      *
      * @param string $image
-     * @return \Lesson
+     * @return self
      */
     public function setImage($image)
     {
@@ -219,7 +220,7 @@ class Lesson
      * Set uptime
      *
      * @param string $uptime
-     * @return \Lesson
+     * @return self
      */
     public function setUptime($uptime)
     {
@@ -235,28 +236,6 @@ class Lesson
     public function getUptime()
     {
         return $this->uptime;
-    }
-
-    /**
-     * Set order
-     *
-     * @param int $order
-     * @return \Lesson
-     */
-    public function setOrder($order)
-    {
-        $this->order = $order;
-        return $this;
-    }
-
-    /**
-     * Get order
-     *
-     * @return int $order
-     */
-    public function getOrder()
-    {
-        return $this->order;
     }
 
     /**
@@ -282,6 +261,28 @@ class Lesson
     }
 
     /**
+     * Set index
+     *
+     * @param string $index
+     * @return self
+     */
+    public function setIndex($index)
+    {
+        $this->index = $index;
+        return $this;
+    }
+
+    /**
+     * Get index
+     *
+     * @return string $index
+     */
+    public function getIndex()
+    {
+        return $this->index;
+    }
+
+    /**
      * Set learn
      *
      * @param int $learn
@@ -304,24 +305,24 @@ class Lesson
     }
 
     /**
-     * Set index
+     * Set order
      *
-     * @param string $index
+     * @param int $order
      * @return self
      */
-    public function setIndex($index)
+    public function setOrder($order)
     {
-        $this->index = $index;
+        $this->order = $order;
         return $this;
     }
 
     /**
-     * Get index
+     * Get order
      *
-     * @return string $index
+     * @return int $order
      */
-    public function getIndex()
+    public function getOrder()
     {
-        return $this->index;
+        return $this->order;
     }
 }
